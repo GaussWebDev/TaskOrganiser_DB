@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` text NOT NULL,
   `firstname` text,
   `lastname` text,
-  `adress` text,
+  `address` text,
   `mobile` int(11) NOT NULL,
   `email` text NOT NULL,
   `ID_role_fk` int(11) NOT NULL,
