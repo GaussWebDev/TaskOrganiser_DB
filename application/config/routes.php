@@ -18,7 +18,18 @@
 | Please see the user guide for complete details:
 |
 |	http://codeigniter.com/user_guide/general/routing.html
-|
+*/
+
+$route['users/all'] = "admin/users_list";
+$route['users/add'] = "admin/users_add";
+$route['users/edit/(:num)'] = "admin/users/users_edit/$1";
+$route['projects/all'] = "admin/projects_list";
+$route['projects/add'] = "admin/procjects_add";
+$route['projects/edit/(:num)'] = "admin/projects_edit/$1";
+$route['domains/all'] = "admin/domains_list";
+$route['domains/add'] = "admin/domains_add";
+$route['domains/edit/(:num)'] = "admin/domains_edit/$1";
+/*
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
 | -------------------------------------------------------------------------

@@ -9,7 +9,6 @@ class Account extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Account_model');
-        $this->load->model('User_model');
         $this->lang->load('account', $this->User_model->getLanguage());
     }
 
