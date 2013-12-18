@@ -21,7 +21,12 @@ class Admin extends CI_Controller
     */
     public function users_list()
     {
-        $this->load->view('admin/list_users');
+        //get user list from database
+        $this->load->model('Account_model');
+        $data['users'] = $this->Account_model->listAll();
+
+
+        $this->load->view('admin/users_list', $data);
     }
 
     /**

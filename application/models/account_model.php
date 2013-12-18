@@ -56,6 +56,20 @@ class Account_model extends CI_Model
     }
 
     /**
+    * Get all user accounts from database
+    *
+    * @return array Array containing users data
+    */
+    public function listAll()
+    {
+        $this->db->select('ID_user, username, firstname, lastname, address, mobile, email, role');
+        $this->db->where('users.ID_role_fk', 'roles.ID_role', false);
+        $query = $this->db->get('users, roles');
+
+        return $query->result_array();
+    }
+
+    /**
     * Encrypt password
     *
     * @param string $username Username ued for salt
