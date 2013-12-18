@@ -8,6 +8,7 @@ class Admin extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->lang->load('account', $this->User_model->getLanguage());
 
         // require admin permissions
         if ($this->User_model->isLoggedIn() == false ||
@@ -23,8 +24,7 @@ class Admin extends CI_Controller
     {
         //get user list from database
         $this->load->model('Account_model');
-        $data['users'] = $this->Account_model->listAll();
-
+        $data['users'] = $this->Account_model->getAll();
 
         $this->load->view('admin/users_list', $data);
     }
@@ -33,7 +33,56 @@ class Admin extends CI_Controller
     * Add new user to database
     */
     public function users_add() {
-        // TODO: Write this function
+        $data = array();
+
+        // get user roles
+        $this->load->model('Account_model');
+        $data['roles'] = $this->Account_model->getRoles();
+        
+        if ($this->input->post() != false) {
+            // validate input on required fields
+            $config = array(
+                array(
+                    'field' => 'username',
+                    'label' => lang('lbl_username'),
+                    'rules' => 'trim|required|is_unique[users.username]'
+                ), array(
+                    'field' => 'firstname',
+                    'label' => lang('lbl_firstname'),
+                    'rules' => 'trim|required'
+                ), array(
+                    'field' => 'email',
+                    'label' => lang('lbl_email'),
+                    'rules' => 'trim|required|valid_email')
+            );
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($config);
+
+            if ($this->form_validation->run() == false) {
+                $data['notify'] = validation_errors();
+            } else {
+                // fetch data from from
+                $user_data = array(
+                    'username' => $this->input->post('username'),
+                    'firstname' => $this->input->post('firstname'),
+                    'lastname' => $this->input->post('lastname'),
+                    'address' => $this->input->post('address'),
+                    'mobile' => $this->input->post('mobile'),
+                    'email' => $this->input->post('email'),
+                    'ID_role_fk' => $this->input->post('role'),
+                    'password' => random_string('alnum', 10));
+                
+                // insert new user
+                if ($this->Account_model->add($user_data) == true) {
+                    $data['notify'] = lang('msg_new_user_success');
+                    // TODO send password via email
+                } else {
+                    $data['notify'] = lang('msg_new_user_fail');
+                }
+            }
+        }
+
+        $this->load->view('admin/users_add', $data);
     }
 
     /**

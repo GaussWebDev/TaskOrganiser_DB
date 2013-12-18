@@ -60,13 +60,37 @@ class Account_model extends CI_Model
     *
     * @return array Array containing users data
     */
-    public function listAll()
+    public function getAll()
     {
         $this->db->select('ID_user, username, firstname, lastname, address, mobile, email, role');
         $this->db->where('users.ID_role_fk', 'roles.ID_role', false);
         $query = $this->db->get('users, roles');
 
         return $query->result_array();
+    }
+
+    /**
+    * Retreive all roles from database
+    *
+    * @return array Array formated like: Role ID => Role name
+    */
+    public function getRoles()
+    {
+        $query = $this->db->get('roles');
+
+        return $query->result_array();
+    }
+
+    /**
+    * Insert new user into database
+    *
+    * @param array $user_data New user information
+    * @return bool True on success, othwerwise false
+    */
+    public function add($user_data)
+    {
+        // TODO: write this function
+        return true;
     }
 
     /**
