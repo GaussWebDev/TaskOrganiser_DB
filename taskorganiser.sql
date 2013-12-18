@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2013 at 02:52 PM
+-- Generation Time: Dec 18, 2013 at 02:43 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -87,7 +87,9 @@ CREATE TABLE IF NOT EXISTS `project_assignees` (
 CREATE TABLE IF NOT EXISTS `roles` (
   `ID_role` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `role` text NOT NULL,
-  PRIMARY KEY (`ID_role`)
+  `permission` int(11) NOT NULL,
+  PRIMARY KEY (`ID_role`),
+  UNIQUE KEY `permission` (`permission`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -119,7 +121,9 @@ CREATE TABLE IF NOT EXISTS `threads` (
   `date_time_start` datetime NOT NULL,
   `ID_user_fk` int(11) NOT NULL,
   `ID_project_fk` int(11) NOT NULL,
-  PRIMARY KEY (`ID_thread`)
+  PRIMARY KEY (`ID_thread`),
+  UNIQUE KEY `ID_thread_2` (`ID_thread`),
+  KEY `ID_thread` (`ID_thread`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -151,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `mobile` int(11) NOT NULL,
   `email` text NOT NULL,
   `ID_role_fk` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
