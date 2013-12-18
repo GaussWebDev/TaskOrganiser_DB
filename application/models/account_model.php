@@ -32,8 +32,27 @@ class Account_model extends CI_Model
     */
     public function reset($email)
     {
-        // TODO: Write this function
-        return false;
+        $this->db->select('ID_user, username');
+        $query = $this->db->get_where('users', array('email' => $email));
+
+        // unknown email address
+        if ($query->num_rows() != 1) {
+            return false;
+        }
+
+        // generate new password
+        $pwd = random_string('alnum', 10);
+
+        // hash it
+        $user = $query->row_array();
+        $pwd_hash = $this->crypt_pwd($user['username'], $pwd);
+
+        // store in database
+        $this->db->where('ID_user', $user['ID_user']);
+        $this->db->set('password', $pwd_hash);
+        $this->db->update('users');
+        
+        return $pwd;
     }
 
     /**

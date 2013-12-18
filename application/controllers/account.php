@@ -75,7 +75,14 @@ class Account extends CI_Controller
                     $data['notify'] = lang('err_unknown_user');
                 } else {
                     // success, send password to user
-                    // TODO: SEND PWD via EMAIL
+                    $this->load->library('email');
+                    $msg = sprintf(lang('msg_pwd_reset'), $pwd);
+
+                    $this->email->from('admin@team-tasks');
+                    $this->email->to($email);
+                    $this->email->subject(lang('msg_subject_pwd_reset'));
+                    $this->email->message($msg);
+                    $this->email->send();
                 }
             }
         }
