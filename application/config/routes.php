@@ -22,7 +22,7 @@
 
 $route['users/all'] = "admin/users_list";
 $route['users/add'] = "admin/users_add";
-$route['users/edit/(:num)'] = "admin/users/users_edit/$1";
+$route['users/edit/(:num)'] = "admin/users_edit/$1";
 $route['projects/all'] = "admin/projects_list";
 $route['projects/add'] = "admin/procjects_add";
 $route['projects/edit/(:num)'] = "admin/projects_edit/$1";
