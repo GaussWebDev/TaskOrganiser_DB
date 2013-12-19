@@ -103,7 +103,55 @@ class Admin extends CI_Controller
     * @param string $id Users id in database
     */
     public function users_edit($id) {
-        // TODO: Write this function
+        $data = array();
+
+        // fetch user info
+        $this->load->model('Account_model');
+        $data['roles'] = $this->Account_model->getRoles();
+
+        if ($this->input->post() != false) {
+            // validate input on required fields
+            $config = array(
+                array(
+                    'field' => 'username',
+                    'label' => lang('lbl_username'),
+                    'rules' => 'trim|required'
+                ), array(
+                    'field' => 'firstname',
+                    'label' => lang('lbl_firstname'),
+                    'rules' => 'trim|required'
+                ), array(
+                    'field' => 'email',
+                    'label' => lang('lbl_email'),
+                    'rules' => 'trim|required|valid_email')
+            );
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($config);
+
+            if ($this->form_validation->run() == false) {
+                $data['notify'] = validation_errors();
+            } else {
+                // fetch data from from
+                $user_data = array(
+                    'username' => $this->input->post('username'),
+                    'firstname' => $this->input->post('firstname'),
+                    'lastname' => $this->input->post('lastname'),
+                    'address' => $this->input->post('address'),
+                    'mobile' => $this->input->post('mobile'),
+                    'email' => $this->input->post('email'),
+                    'ID_role_fk' => $this->input->post('role'),
+                    'active' => $this->input->post('active'));
+
+                if ($this->Account_model->update($id, $user_data) == true) {
+                    $data['notify'] = lang('msg_update_user_success');
+                } else {
+                    $data['notify'] = lang('msg_update_user_fail');
+                }
+            }
+        }
+
+        $data['user'] = $this->Account_model->getInfo($id);
+        $this->load->view('admin/users_add', $data);
     }
 
     /**

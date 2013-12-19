@@ -19,3 +19,6 @@ $lang['msg_new_user_fail'] = "Failed to create new user";
 $lang['msg_new_user_success'] = "New user created successfully";
 $lang['msg_new_account'] = "New account has been created for you on %s. You can login with:\nUsername: %s\nPassword: %s";
 $lang['msg_subject_new_account'] = "Account opened";
+
+$lang['msg_update_user_success'] = "User updated successfully";
+$lang['msg_update_user_fail'] = "User update failed";

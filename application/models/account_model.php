@@ -101,6 +101,37 @@ class Account_model extends CI_Model
     }
 
     /**
+    * Update existing user
+    *
+    * @param string $id Users id
+    * @param array $user_data Array containing data to be changed
+    * @return bool True on sucess, otherwise false
+    */
+    public function update($id, $user_data)
+    {
+        $this->db->where('ID_user', $id);
+        $this->db->set($user_data);
+        // FIXME: change in username requires password reset
+        
+        return $this->db->update('users');
+    }
+
+    /**
+    * Retreive user info based on his id
+    *
+    * @param string $id Users id in database
+    * @return array Array containing user info
+    */
+    public function getInfo($id)
+    {
+        $this->db->where('ID_user', $id);
+        $this->db->select('ID_user, username, firstname, lastname, address, mobile, email, ID_role_fk, active');
+        $query = $this->db->get('users');
+
+        return $query->row_array();
+    }
+
+    /**
     * Encrypt password
     *
     * @param string $username Username ued for salt
