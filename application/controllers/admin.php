@@ -73,11 +73,23 @@ class Admin extends CI_Controller
                     'password' => random_string('alnum', 10));
                 
                 // insert new user
-                if ($this->Account_model->add($user_data) == true) {
-                    $data['notify'] = lang('msg_new_user_success');
-                    // TODO send password via email
-                } else {
+                if ($this->Account_model->add($user_data) == false) {
+                    // adding to database failed
                     $data['notify'] = lang('msg_new_user_fail');
+                } else {
+                    // success, send email notification
+                    $data['notify'] = lang('msg_new_user_success');
+                    $msg = sprintf(lang('msg_new_account'),
+                        base_url(),
+                        $user_data['username'],
+                        $user_data['password']);
+
+                    $this->load->library('email');
+                    $this->email->from('admin@team-tasks'); // FIXME: email from config?
+                    $this->email->to($user_data['email']);
+                    $this->email->subject(lang('msg_subject_new_account'));
+                    $this->email->message($msg);
+                    $this->email->send();
                 }
             }
         }

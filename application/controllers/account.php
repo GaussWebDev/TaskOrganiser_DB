@@ -77,7 +77,7 @@ class Account extends CI_Controller
                     $this->load->library('email');
                     $msg = sprintf(lang('msg_pwd_reset'), $pwd);
 
-                    $this->email->from('admin@team-tasks');
+                    $this->email->from('admin@team-tasks'); // FIXME: email from config?
                     $this->email->to($email);
                     $this->email->subject(lang('msg_subject_pwd_reset'));
                     $this->email->message($msg);

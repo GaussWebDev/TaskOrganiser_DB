@@ -89,8 +89,15 @@ class Account_model extends CI_Model
     */
     public function add($user_data)
     {
-        // TODO: write this function
-        return true;
+        // prepare data
+        $user_data['active'] = 1;
+        $user_data['password'] = $this->crypt_pwd(
+            $user_data['username'], $user_data['password']);
+
+        // perform insert
+        $result = $this->db->insert('users', $user_data);
+        
+        return $result;
     }
 
     /**

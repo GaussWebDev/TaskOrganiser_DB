@@ -17,4 +17,5 @@ $lang['msg_subject_pwd_reset'] = "Password reset";
 
 $lang['msg_new_user_fail'] = "Failed to create new user";
 $lang['msg_new_user_success'] = "New user created successfully";
-
+$lang['msg_new_account'] = "New account has been created for you on %s. You can login with:\nUsername: %s\nPassword: %s";
+$lang['msg_subject_new_account'] = "Account opened";
