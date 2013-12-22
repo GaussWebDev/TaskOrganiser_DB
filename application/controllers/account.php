@@ -13,7 +13,7 @@ class Account extends CI_Controller
     }
 
     /**
-    * Ovo nije Login Page
+    * User login page
     */
     public function index()
     {
