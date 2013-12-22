@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2013 at 01:08 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.16
+-- Generation Time: Dec 22, 2013 at 02:48 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskorganiser`
 --
-CREATE DATABASE IF NOT EXISTS `taskorganiser` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `taskorganiser`;
 
 -- --------------------------------------------------------
 
@@ -152,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `firstname` text,
   `lastname` text,
   `address` text,
-  `mobile` int(11) NOT NULL,
+  `mobile` text NOT NULL,
   `email` text NOT NULL,
   `ID_role_fk` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
