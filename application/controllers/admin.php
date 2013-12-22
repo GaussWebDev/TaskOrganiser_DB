@@ -158,8 +158,11 @@ class Admin extends CI_Controller
     * List all projects
     */
     public function projects_list() {
-        // TODO: Write this function
         // TODO: List only active??
+        $this->load->model('Project_model');
+        $data['projects'] = $this->Project_model->getAll();
+
+        $this->load->view('admin/projects_list', $data);
     }
 
     /**
