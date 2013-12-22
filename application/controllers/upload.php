@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
-* Account management
+* Upload management
 */
 class Upload extends CI_Controller
 {
@@ -9,7 +9,7 @@ class Upload extends CI_Controller
     {
         parent::__construct();
         $this->load->model('upload_model');
-        $this->load->model('Account_model');
+        $this->load->model('User_model');
         $this->load->helper(array('form', 'url'));
     }
 
@@ -20,13 +20,14 @@ class Upload extends CI_Controller
 
     function do_upload()
     {
+        /*Upload validation settings*/
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png|pdf|doc|docx';
         $config['max_size'] = '3000';
     
-
         $this->load->library('upload', $config);
 
+        /*If validation fail*/
         if ( ! $this->upload->do_upload())
         {
             $error = array('error' => $this->upload->display_errors());
@@ -34,16 +35,16 @@ class Upload extends CI_Controller
             $this->load->view('upload/upload_form', $error);
         }
         else
-        {
+        {   
+
             $comment = $this->input->post('comment');
-            $upload_data = $this->upload->data();
-            $path = $upload_data['full_path'];
-            $data = $this->Account_model->getAll(); 
-            $id = $data[0]['ID_user'];
-            $insert_data  = $this->upload_model->insert_upload_data($comment, $path, $id);
-            if($insert_data === true)
+
+            $upload_data = $this->upload->data(); //array
+            $id = $this->User_model->getUserID(); //array
+
+            if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id['ID_user']))
             {
-               $data = array('upload_data' => $this->upload->data());
+                $data = array('upload_data' => $this->upload->data());
                 $this->load->view('upload/upload_success', $data);
             }
         }

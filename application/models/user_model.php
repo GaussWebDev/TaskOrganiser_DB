@@ -103,4 +103,11 @@ class User_model extends CI_Model
         $full_name = $this->_firstname . ' ' . $this->_lastname;
         return $full_name;
     }
+
+
+    public function getUserID(){
+        $user = $this->getUsername();
+        $query = $this->db->get_where('users', array('username' => $user), 1);
+        return $query->row_array();
+    }
 }
