@@ -1,10 +1,10 @@
 <html>
 <head>
-<title>Upload Form</title>
+<title>Upload Form</title><!-- FIXME: Use lang()!!! -->
 </head>
 <body>
 
-<h3>Your file was successfully uploaded!</h3>
+<h3>Your file was successfully uploaded!</h3> <!-- FIXME: Use lang()!!! -->
 
 <ul>
 <?php foreach ($upload_data as $item => $value):?>
@@ -12,7 +12,7 @@
 <?php endforeach; ?>
 </ul>
 
-<p><?php echo anchor('upload', 'Upload Another File!'); ?></p>
+<p><?php echo anchor('upload', 'Upload Another File!'); ?></p> <!-- FIXME: Use lang()!!! -->
 
 </body>
 </html>
