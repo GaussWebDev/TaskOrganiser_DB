@@ -18,7 +18,7 @@ class Account_model extends CI_Model
             'active' => 1);
         $this->db->where($arg);
         $this->db->where('users.ID_role_fk', 'roles.ID_role', false);
-        $this->db->select('username, firstname, lastname, address, mobile, email, permission');
+        $this->db->select('ID_user, username, firstname, lastname, address, mobile, email, permission');
         $query = $this->db->get('users, roles');
 
         return $query->row_array();
