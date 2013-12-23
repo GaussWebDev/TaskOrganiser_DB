@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2013 at 02:48 PM
+-- Generation Time: Dec 23, 2013 at 02:21 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -19,6 +19,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `taskorganiser`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `domains`
+--
+
+CREATE TABLE IF NOT EXISTS `domains` (
+  `ID_domain` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ID_user_fk` int(11) DEFAULT NULL,
+  `domain` text NOT NULL,
+  `date_time_start` datetime NOT NULL,
+  `date_time_expires` datetime DEFAULT NULL,
+  `cost` decimal(10,0) DEFAULT NULL,
+  `expired` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID_domain`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -54,10 +71,10 @@ CREATE TABLE IF NOT EXISTS `posts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `project`
+-- Table structure for table `projects`
 --
 
-CREATE TABLE IF NOT EXISTS `project` (
+CREATE TABLE IF NOT EXISTS `projects` (
   `ID_project` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `finished` tinyint(1) NOT NULL,
@@ -88,7 +105,16 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `permission` int(11) NOT NULL,
   PRIMARY KEY (`ID_role`),
   UNIQUE KEY `permission` (`permission`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`ID_role`, `role`, `permission`) VALUES
+(1, 'Administrator', 100),
+(2, 'Developer', 50),
+(3, 'Client', 1);
 
 -- --------------------------------------------------------
 
@@ -155,7 +181,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ID_role_fk` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID_user`, `username`, `password`, `firstname`, `lastname`, `address`, `mobile`, `email`, `ID_role_fk`, `active`) VALUES
+(1, 'admin', '$2y$11$adminadminadminadminaOxMpwoIi7VP157XWVBS2ZBQGlY8pvPMm', 'pero', 'peric', 'Osijek, pericpericova 15', '+385989359497', 'peroperic@gmail.com', 1, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
