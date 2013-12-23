@@ -40,9 +40,9 @@ class Upload extends CI_Controller
             $comment = $this->input->post('comment');
 
             $upload_data = $this->upload->data(); //array
-            $id = $this->User_model->getUserID(); //array
+            $id = $this->User_model->getID(); //array
 
-            if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id['ID_user']))
+            if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id))
             {
                 $data = array('upload_data' => $this->upload->data());
                 $this->load->view('upload/upload_success', $data);
