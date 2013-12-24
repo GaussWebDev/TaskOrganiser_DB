@@ -6,7 +6,7 @@
     <li>Tasks</li>
     <ul>
         <li><a href="<?php echo site_url('tasks/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('tasks'); ?>">List</a></li>
+        <li><a href="<?php echo site_url('tasks/all'); ?>">List</a></li>
     </ul>
     <li><a href="<?php echo site_url('upload'); ?>">Upload file</a></li>
 </ul>
