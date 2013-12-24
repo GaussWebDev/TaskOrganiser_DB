@@ -41,6 +41,7 @@ class Project_model extends CI_Model
             return false;
         }
 
+        // update assignees
         $prj_id = $query->row_array();
         $this->addAssignees($prj_id['ID_project'], $assignees);
 
@@ -67,5 +68,73 @@ class Project_model extends CI_Model
             $this->db->insert('project_assignees');
         }
         $this->db->trans_complete();
+    }
+
+    /**
+    * Return project info
+    *
+    * @param string $id Project ID
+    * @return array Project data
+    */
+    public function getInfo($id)
+    {
+        // get info
+        $this->db->where('ID_project', $id);
+        $query = $this->db->get('project');
+
+        // check output
+        if ($query->num_rows() != 1) {
+            return false;
+        }
+
+        //return data
+        return $query->row_array();
+    }
+
+    /**
+    * Return project assignees info
+    *
+    * @param string $id Project ID
+    * @return array Assignees info
+    */
+    public function getAssignees($id)
+    {
+        // grab results
+        $this->db->where('ID_project_fk', $id);
+        $this->db->select('ID_user_fk');
+        $query = $this->db->get('project_assignees');
+
+        // empty array on empty result
+        if ($query->num_rows() == 0) {
+            return array();
+        }
+
+        // reformat output
+        $ids = $query->result_array();
+        $result = array();
+        foreach ($ids as $id) $result[] = $id['ID_user_fk'];
+        
+        return $result;
+    }
+
+    /**
+    * Update existing project
+    *
+    * @param string $id Project ID
+    * @param array $project Project basic info
+    * @param array $users Users assigned to project
+    */
+    public function update($id, $project, $assignees)
+    {
+        // reformat date
+        $date = new DateTime($project['date_time_start']);
+        $project['date_time_start'] = $date->format('Y-m-d');
+
+        // insert new data
+        $this->db->where('ID_project', $id);
+        $this->db->update('project', $project);
+
+        // Update assignees
+        $this->addAssignees($id, $assignees);
     }
 }

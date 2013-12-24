@@ -221,7 +221,48 @@ class Admin extends CI_Controller
     */
     public function projects_edit($id)
     {
-        // TODO: Write this function
+        $this->load->model('Project_model');
+
+        if ($this->input->post() != false) {
+            // fetch project info
+            $project = array(
+                'title' => $this->input->post('title'),
+                'finished' => $this->input->post('finished'),
+                'date_time_start' => $this->input->post('started'));
+
+            // validate input
+            if ($project['title'] == '') {
+                $data['notify'] = lang('err_empty_title');
+            } else {
+                $assignees = array();
+                // fetch assigned clients
+                $max_client = $this->input->post('max_client');
+                for ($i=0; $i < $max_client; $i++) { 
+                    $client = $this->input->post('client' . $i);
+                    if ($client != false) $assignees[] = $client;
+                }
+                // fetch assigned developers
+                $max_devel = $this->input->post('max_developer');
+                for ($i=0; $i < $max_devel; $i++) { 
+                    $developer = $this->input->post('developer'. $i);
+                    if ($developer != false) $assignees[] = $developer;
+                }
+
+                $this->load->model('Project_model');
+                $this->Project_model->update($id, $project, $assignees);
+                $data['notify'] = lang('msg_project_update_success');
+            }
+        }
+        
+        // load account list
+        $this->load->model('Account_model');
+        $data['users'] = $this->Account_model->getAll();
+
+        // grab project info
+        $data['info'] = $this->Project_model->getInfo($id);
+        $data['assignees'] = $this->Project_model->getAssignees($id);
+
+        $this->load->view('admin/projects_add', $data);
     }
 
     /**

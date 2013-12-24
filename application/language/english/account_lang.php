@@ -26,3 +26,5 @@ $lang['msg_update_user_fail'] = "User update failed";
 $lang['msg_project_add_fail'] = "Unable to add project";
 $lang['msg_project_add_success'] = "New project has been added";
 $lang['err_empty_title'] = "Project must have title";
+
+$lang['msg_project_update_success'] = "Project updated successfully";
