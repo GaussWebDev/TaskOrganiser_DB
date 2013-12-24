@@ -1,4 +1,4 @@
-<?php include 'nav.php' ?>
+<?php $this->load->view('nav'); ?>
 
 <?php if (isset($user['ID_user']) == false): ?>
 <form action="<?php echo site_url('users/add'); ?>" method="post">

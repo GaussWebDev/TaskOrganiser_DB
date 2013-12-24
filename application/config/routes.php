@@ -49,7 +49,7 @@ $route['domains/edit/(:num)'] = "admin/domains_edit/$1";
 |
 */
 
-$route['default_controller'] = "";
+$route['default_controller'] = "dashboard";
 $route['404_override'] = '';
 
 

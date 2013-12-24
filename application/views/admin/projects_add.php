@@ -1,4 +1,4 @@
-<?php include 'nav.php' ?>
+<?php $this->load->view('nav'); ?>
 
 <?php if (isset($info['ID_project']) == false): ?>
 <form action="<?php echo site_url('/projects/add'); ?>" method="post">

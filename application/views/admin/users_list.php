@@ -1,3 +1,3 @@
-<?php include 'nav.php' ?>
+<?php $this->load->view('nav'); ?>
 
 <?php var_dump($users); ?>
