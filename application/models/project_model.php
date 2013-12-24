@@ -137,4 +137,25 @@ class Project_model extends CI_Model
         // Update assignees
         $this->addAssignees($id, $assignees);
     }
+
+    /**
+    * Get projects to which users is assigned to
+    *
+    * @return array Project name and id
+    */
+    public function listUserProjects()
+    {
+        $this->db->select('title, ID_project');
+        $this->db->where('ID_user_fk', $this->User_model->getID());
+        $this->db->where('finished',0);
+        $this->db->where('project_assignees.ID_project_fk', 'project.ID_project', false);
+        $query = $this->db->get('project, project_assignees');
+
+        // empty array on empty result
+        if ($query->num_rows() == 0) {
+            return array();
+        }
+
+        return $query->result_array();
+    }
 }
