@@ -158,4 +158,42 @@ class Project_model extends CI_Model
 
         return $query->result_array();
     }
+
+    /**
+    * Check if project project exists and is active.
+    * Second parameters is optional, checks if user belongs to project
+    *
+    * @param string $id Project ID
+    * @param string $user_id User ID (optional)
+    * @return bool True if active project exists
+    */
+    public function isActive($id, $user_id = '')
+    {
+        // query project
+        $this->db->where(array(
+            'ID_project' => $id,
+            'finished' => 0));
+        $query = $this->db->get('project');
+
+        // project exists??
+        if ($query->num_rows() != 1) {
+            return false;
+        }
+
+        if ($user_id != '') {
+            // is user assigned to project?
+            $project = $query->row_array();
+            $this->db->where(array(
+                'ID_project_fk' => $project['ID_project'],
+                'ID_user_fk' => $user_id));
+            $query = $this->db->get('project_assignees');
+
+            // check result
+            if ($query->num_rows() == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -36,8 +36,16 @@ class Dashboard extends CI_Controller
     */
     public function project($id)
     {
-        // FIXME: check if project exists
-        $this->User_model->set(array('project' => $id));
+        // set user id
+        $user_id = $this->User_model->getID();
+        if ($this->User_model->getPermissions() == 100) {
+            $user_id = '';
+        }
+
+        // assign to project
+        if ($this->Project_model->isActive($id, $user_id) == true) {
+            $this->User_model->set(array('project' => $id));
+        }
 
         redirect(base_url());
     }
