@@ -20,6 +20,7 @@ class User_model extends CI_Model
     private $_email;
     private $_permission;
     private $_ID_user;
+    private $_project;
 
     /**
     * Set defaults
@@ -32,7 +33,7 @@ class User_model extends CI_Model
         // attempt to load from session
         $keys = array('_language', '_logged_in', '_username',
             '_firstname', '_lastname', '_address', '_mobile',
-            '_email', '_permission', '_ID_user');
+            '_email', '_permission', '_ID_user', '_project');
         foreach ($keys as $key) {
             $this->$key = $this->session->userdata($key);
         }
@@ -94,6 +95,7 @@ class User_model extends CI_Model
     * Getter function
     */
     public function getID() { return $this->_ID_user; }
+    public function getActiveProject() { return $this->_project; }
     public function getUsername() { return $this->_username; }
     public function getAddress() { return $this->_address; }
     public function getMobile() { return $this->_mobile; }
