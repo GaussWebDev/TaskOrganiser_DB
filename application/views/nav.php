@@ -1,6 +1,7 @@
 <?php if ($this->User_model->getPermissions() == 100) $this->load->view('admin_nav'); ?>
 
 <ul id="developer_menu">
+<?php if ($this->User_model->getActiveProject() != false): ?>
     <li><a href="<?php echo site_url('discussions'); ?>">Discussions</a></li>
     <li>Tasks</li>
     <ul>
@@ -10,7 +11,7 @@
     <li><a href="<?php echo site_url('upload'); ?>">Upload file</a></li>
     
     <li>- - - - - -</li>
-
+<?php endif; ?>
     <li><a href="<?php echo site_url('dashboard'); ?>">Dashboard</a></li>
     <li>TODO</li>
     <ul>
