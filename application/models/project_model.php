@@ -146,10 +146,20 @@ class Project_model extends CI_Model
     public function listUserProjects()
     {
         $this->db->select('title, ID_project');
-        $this->db->where('ID_user_fk', $this->User_model->getID());
-        $this->db->where('finished',0);
-        $this->db->where('project_assignees.ID_project_fk', 'project.ID_project', false);
-        $query = $this->db->get('project, project_assignees');
+
+        if ($this->User_model->getPermissions() == 100) {
+            // get all active projects for admin
+            $this->db->where('finished',0);
+            $tables = 'project';
+        } else {
+            // list all assigned projects
+            $this->db->where('ID_user_fk', $this->User_model->getID());
+            $this->db->where('finished',0);
+            $this->db->where('project_assignees.ID_project_fk', 'project.ID_project', false);
+            $tables = 'project, project_assignees';
+        }
+
+        $query = $this->db->get($tables);
 
         // empty array on empty result
         if ($query->num_rows() == 0) {
