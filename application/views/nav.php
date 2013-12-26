@@ -5,8 +5,8 @@
     <li><a href="<?php echo site_url('discussions'); ?>">Discussions</a></li>
     <li>Tasks</li>
     <ul>
-        <li><a href="<?php echo site_url('tasks/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('tasks/all'); ?>">List</a></li>
+        <li><a href="<?php echo site_url('task/add'); ?>">Add</a></li>
+        <li><a href="<?php echo site_url('task/all'); ?>">List</a></li>
     </ul>
     <li><a href="<?php echo site_url('upload'); ?>">Upload file</a></li>
 </ul>
