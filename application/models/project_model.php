@@ -137,4 +137,73 @@ class Project_model extends CI_Model
         // Update assignees
         $this->addAssignees($id, $assignees);
     }
+
+    /**
+    * Get projects to which users is assigned to
+    *
+    * @return array Project name and id
+    */
+    public function listUserProjects()
+    {
+        $this->db->select('title, ID_project');
+
+        if ($this->User_model->getPermissions() == 100) {
+            // get all active projects for admin
+            $this->db->where('finished',0);
+            $tables = 'project';
+        } else {
+            // list all assigned projects
+            $this->db->where('ID_user_fk', $this->User_model->getID());
+            $this->db->where('finished',0);
+            $this->db->where('project_assignees.ID_project_fk', 'project.ID_project', false);
+            $tables = 'project, project_assignees';
+        }
+
+        $query = $this->db->get($tables);
+
+        // empty array on empty result
+        if ($query->num_rows() == 0) {
+            return array();
+        }
+
+        return $query->result_array();
+    }
+
+    /**
+    * Check if project project exists and is active.
+    * Second parameters is optional, checks if user belongs to project
+    *
+    * @param string $id Project ID
+    * @param string $user_id User ID (optional)
+    * @return bool True if active project exists
+    */
+    public function isActive($id, $user_id = '')
+    {
+        // query project
+        $this->db->where(array(
+            'ID_project' => $id,
+            'finished' => 0));
+        $query = $this->db->get('project');
+
+        // project exists??
+        if ($query->num_rows() != 1) {
+            return false;
+        }
+
+        if ($user_id != '') {
+            // is user assigned to project?
+            $project = $query->row_array();
+            $this->db->where(array(
+                'ID_project_fk' => $project['ID_project'],
+                'ID_user_fk' => $user_id));
+            $query = $this->db->get('project_assignees');
+
+            // check result
+            if ($query->num_rows() == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

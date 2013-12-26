@@ -162,7 +162,6 @@ class Admin extends CI_Controller
     public function projects_list()
     {
         // TODO: List only active??
-        $this->load->model('Project_model');
         $data['projects'] = $this->Project_model->getAll();
 
         $this->load->view('admin/projects_list', $data);
@@ -202,7 +201,6 @@ class Admin extends CI_Controller
                     if ($developer != false) $assignees[] = $developer;
                 }
 
-                $this->load->model('Project_model');
                 if ($this->Project_model->add($project, $assignees) == true) {
                     $data['notify'] = lang('msg_project_add_success');
                 } else {
@@ -221,7 +219,6 @@ class Admin extends CI_Controller
     */
     public function projects_edit($id)
     {
-        $this->load->model('Project_model');
 
         if ($this->input->post() != false) {
             // fetch project info
@@ -248,7 +245,6 @@ class Admin extends CI_Controller
                     if ($developer != false) $assignees[] = $developer;
                 }
 
-                $this->load->model('Project_model');
                 $this->Project_model->update($id, $project, $assignees);
                 $data['notify'] = lang('msg_project_update_success');
             }

@@ -13,37 +13,40 @@ class Dashboard extends CI_Controller
     }
 
     /**
-    * Route to right dashboard
+    * Display dashboard
     */
     public function index()
     {
+        $data['name'] = $this->User_model->getFullName();
+
         switch($this->User_model->getPermissions()) {
             case 100: //admin
-                $this->admin_dashboard();
+                $this->load->view('dashboard/admin', $data);
                 break;
             default:
-                $this->default_dashboard();
+                $this->load->view('dashboard/default', $data);
                 break;
         }
     }
 
     /**
-    * Dashboard for admin user
+    * Set active project
+    *
+    * @param string $id Project ID
     */
-    private function admin_dashboard()
+    public function project($id)
     {
-        $data['name'] = $this->User_model->getFullName();
+        // set user id
+        $user_id = $this->User_model->getID();
+        if ($this->User_model->getPermissions() == 100) {
+            $user_id = '';
+        }
 
-        $this->load->view('dashboard/admin', $data);
-    }
+        // assign to project
+        if ($this->Project_model->isActive($id, $user_id) == true) {
+            $this->User_model->set(array('project' => $id));
+        }
 
-    /**
-    * Default dashboard
-    */
-    private function default_dashboard()
-    {
-        $data['name'] = $this->User_model->getFullName();
-
-        $this->load->view('dashboard/default', $data);
+        redirect(base_url());
     }
 }
