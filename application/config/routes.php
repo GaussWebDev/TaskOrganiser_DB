@@ -29,6 +29,10 @@ $route['projects/edit/(:num)'] = "admin/projects_edit/$1";
 $route['domains/all'] = "admin/domains_list";
 $route['domains/add'] = "admin/domains_add";
 $route['domains/edit/(:num)'] = "admin/domains_edit/$1";
+$route['task/all'] = "task/task_list";
+$route['task/add'] = "task/task_add";
+$route['task/edit/(:num)'] = "task/task_edit/$1";
+$route['task/delete/(:num)'] = "task/task_delete/$1";
 /*
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
