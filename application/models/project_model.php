@@ -206,4 +206,20 @@ class Project_model extends CI_Model
 
         return true;
     }
+
+    /**
+    * Delete project from database.
+    * Prior to deleting project, it cleans project_assignees table
+    *
+    * @param string $id Project ID
+    */
+    public function delete($id)
+    {
+        // clear assignees
+        $this->addAssignees($id, array());
+
+        // remove project
+        $this->db->where('ID_project', $id);
+        $this->db->delete('projects');
+    }
 }
