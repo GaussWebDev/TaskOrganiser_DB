@@ -10,7 +10,7 @@ class Project_model extends CI_Model
     public function getAll()
     {
         $this->db->select('ID_project, title, finished, date_time_start');
-        $query = $this->db->get('project');
+        $query = $this->db->get('projects');
 
         return $query->result_array();
     }
@@ -30,12 +30,12 @@ class Project_model extends CI_Model
 
         // insert new data
         $this->db->set($project);
-        $this->db->insert('project');
+        $this->db->insert('projects');
 
         // retrieve id
         $this->db->select('ID_project');
         $this->db->where($project);
-        $query = $this->db->get('project');
+        $query = $this->db->get('projects');
 
         if ($query->num_rows() != 1) {
             return false;
@@ -80,7 +80,7 @@ class Project_model extends CI_Model
     {
         // get info
         $this->db->where('ID_project', $id);
-        $query = $this->db->get('project');
+        $query = $this->db->get('projects');
 
         // check output
         if ($query->num_rows() != 1) {
@@ -132,7 +132,7 @@ class Project_model extends CI_Model
 
         // insert new data
         $this->db->where('ID_project', $id);
-        $this->db->update('project', $project);
+        $this->db->update('projects', $project);
 
         // Update assignees
         $this->addAssignees($id, $assignees);
@@ -150,13 +150,13 @@ class Project_model extends CI_Model
         if ($this->User_model->getPermissions() == 100) {
             // get all active projects for admin
             $this->db->where('finished',0);
-            $tables = 'project';
+            $tables = 'projects';
         } else {
             // list all assigned projects
             $this->db->where('ID_user_fk', $this->User_model->getID());
             $this->db->where('finished',0);
-            $this->db->where('project_assignees.ID_project_fk', 'project.ID_project', false);
-            $tables = 'project, project_assignees';
+            $this->db->where('project_assignees.ID_project_fk', 'projects.ID_project', false);
+            $tables = 'projects, project_assignees';
         }
 
         $query = $this->db->get($tables);
@@ -183,7 +183,7 @@ class Project_model extends CI_Model
         $this->db->where(array(
             'ID_project' => $id,
             'finished' => 0));
-        $query = $this->db->get('project');
+        $query = $this->db->get('projects');
 
         // project exists??
         if ($query->num_rows() != 1) {
