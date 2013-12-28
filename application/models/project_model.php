@@ -175,14 +175,20 @@ class Project_model extends CI_Model
     *
     * @param string $id Project ID
     * @param string $user_id User ID (optional)
+    * @param bool $finished Check required value of finished. Ignored if empty
     * @return bool True if active project exists
     */
-    public function isActive($id, $user_id = '')
+    public function isActive($id, $user_id = '', $finished=0)
     {
         // query project
-        $this->db->where(array(
-            'ID_project' => $id,
-            'finished' => 0));
+        $this->db->where('ID_project', $id);
+
+        // finished column
+        if ($finished != '') {
+            $this->db->where('finished', $finished);
+        }
+
+        // get projects
         $query = $this->db->get('projects');
 
         // project exists??
