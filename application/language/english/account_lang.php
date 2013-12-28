@@ -41,3 +41,6 @@ $lang['msg_delete_task_success'] = "Task deleted successfully";
 $lang['msg_delete_task_fail'] = "Failed to delete Task";
 
 $lang['msg_project_update_success'] = "Project updated successfully";
+
+$lang['err_no_project'] = "Project doesn't exist";
+$lang['msg_prj_delete_success'] = "Project deleted";

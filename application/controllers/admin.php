@@ -262,6 +262,47 @@ class Admin extends CI_Controller
     }
 
     /**
+    * Remove existing project
+    *
+    * @param string $id Project ID
+    */
+    public function project_delete($id)
+    {
+        $data = array();
+
+         // check if project exists
+        if ($this->Project_model->isActive($id, '', '') == false) {
+            // no project, display error
+            $data['notify'] = lang('err_no_project');
+
+        } else if ($this->input->post() != false) {
+            // request confirmation
+            $confirm_code = $this->input->post('confirm');
+            $confirm_nonce = $this->session->userdata('prj_confirm');
+            $this->session->unset_userdata('prj_confirm');
+
+            // validate nonce
+            if ($confirm_nonce != $confirm_code) {
+                // validation failed, redirect
+                redirect(base_url());
+            }
+
+            // request OK, delete project
+            $this->Project_model->delete($id);
+            $data['notify'] = lang('msg_prj_delete_success');
+        } else {
+            // require user confirmation
+            // random string as confirmation to prevent accidental delete
+            $confirm = random_string('alnum', 10);
+            $data['confirm'] = $confirm;
+            $data['id'] = $id;
+            $this->session->set_userdata('prj_confirm',$confirm);
+        }
+
+        $this->load->view('admin/projects_delete.php', $data);
+    }
+
+    /**
     * List all domains from database
     */
     public function domains_list()
