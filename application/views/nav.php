@@ -8,7 +8,12 @@
         <li><a href="<?php echo site_url('task/add'); ?>">Add</a></li>
         <li><a href="<?php echo site_url('task/all'); ?>">List</a></li>
     </ul>
-    <li><a href="<?php echo site_url('upload'); ?>">Upload file</a></li>
+    <li>Upload file</li>
+    <ul>
+        <li><a href="<?php echo site_url('upload'); ?>">New upload</a></li>
+        <?php $project_id = $this->session->userdata('project_id'); ?>
+        <li><a href="<?php echo site_url("upload/upload_list/{$project_id}"); ?>">List</a></li>
+    </ul>
     
     <li>- - - - - -</li>
 <?php endif; ?>

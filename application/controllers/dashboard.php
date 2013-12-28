@@ -36,6 +36,8 @@ class Dashboard extends CI_Controller
     */
     public function project($id)
     {
+        //Stjepane ovo sam spremio u sessiju jer mi treba za file upload project id
+        $this->session->set_userdata('project_id', $id);
         // set user id
         $user_id = $this->User_model->getID();
         if ($this->User_model->getPermissions() == 100) {

@@ -40,14 +40,21 @@ class Upload extends CI_Controller
             $comment = $this->input->post('comment');
 
             $upload_data = $this->upload->data(); //array
-            $id = $this->User_model->getID(); //array
-
-            if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id))
+            $id = $this->User_model->getID(); 
+            $project_id = $this->session->userdata('project_id');
+            if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id, $project_id))
             {
                 $data = array('upload_data' => $this->upload->data());
                 $this->load->view('upload/upload_success', $data);
             }
         }
+    }
+
+    function upload_list($project_id)
+    {
+        $id = $this->User_model->getID(); 
+        $data['upload_data'] = $this->upload_model->list_by_project_id($project_id, $id);
+        $this->load->view('upload/upload_list', $data);
     }
   
 }
