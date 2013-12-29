@@ -29,7 +29,7 @@ class Todo extends CI_Controller
     	//get list of todos from database
     	//instance the class
         $this->load->model('Todo_model');
-        $data['todos'] = $this->Todo_model->getTodo();
+        $data['todos'] = $this->Todo_model->getTodo($this->User_model->getID());
 		
     	//load the view associated with this controller
     	$this->load->view('todo/todo', $data);
@@ -104,7 +104,7 @@ class Todo extends CI_Controller
 		}
 		
 		//populate the table and reload the view
-	 	$data['todos'] = $this->Todo_model->getTodo();
+	 	$data['todos'] = $this->Todo_model->getTodo($this->User_model->getID());
 		
     	//load the view associated with this controller
     	$this->load->view('todo/todo', $data);

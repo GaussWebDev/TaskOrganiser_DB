@@ -3,13 +3,15 @@
 class Todo_model extends CI_Model
 {
 	/**
-	 * Gets all the todo things
+	 * Gets all the todo things based off user ID
+	 * 
+	 * @param: $id ID of the user currecntly logged in
 	 * 
 	 * @return: returns an array of results
 	 */
-	public function getTodo() {
+	public function getTodo($id) {
 		//get the todo tasks of that user on the current project
-		$query = $this->db->query("SELECT *	FROM todo"); 
+		$query = $this->db->query("SELECT *	FROM todo WHERE ID_user_fk ='{$id}'"); 
 						
 		return $query->result_array();
 	}
