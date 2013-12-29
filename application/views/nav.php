@@ -24,8 +24,6 @@
   </ul>
   <div class="relative-w">
     <ul class="side-menu">
-
-<<<<<<< HEAD
     <?php 
     if ($this->User_model->getPermissions() == 100) 
     { 
@@ -177,7 +175,7 @@
         </ul>
       </li>
     <?php endif; ?>
-=======
+
 <ul id="developer_menu">
 <?php if ($this->User_model->getActiveProject() != false): ?>
     <li><a href="<?php echo site_url('discussions'); ?>">Discussions</a></li>
@@ -200,13 +198,6 @@
     <ul>
         <li><a href="<?php echo site_url('todo/add'); ?>">Add</a></li>
         <li><a href="<?php echo site_url('todo/all'); ?>">List</a></li>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
-=======
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
-=======
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
     </ul>
     </ul>
   </div>
