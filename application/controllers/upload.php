@@ -41,7 +41,7 @@ class Upload extends CI_Controller
 
             $upload_data = $this->upload->data(); //array
             $id = $this->User_model->getID(); 
-            $project_id = $this->session->userdata('project_id');
+            $project_id = $this->User_model->getActiveProject();
             if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id, $project_id))
             {
                 $data = array('upload_data' => $this->upload->data());
@@ -55,6 +55,7 @@ class Upload extends CI_Controller
     {
         $data['permission'] = $this->User_model->getPermissions();
         $id = $this->User_model->getID(); 
+        $project_id = $this->User_model->getActiveProject();
         $data['upload_data'] = $this->upload_model->list_by_project_id($project_id, $id);
         $this->load->view('upload/upload_list', $data);
     }

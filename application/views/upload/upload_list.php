@@ -10,9 +10,6 @@
   	</tr>
 	
   	<?php 
-    echo '<pre>';
-  	var_dump($permission);
-    echo '</pre>';
   	foreach($upload_data as $data)
   	{
   		$name = str_replace("C:/xammp1/htdocs/TaskOrganiser_DB/uploads/","","{$data['url']}");
