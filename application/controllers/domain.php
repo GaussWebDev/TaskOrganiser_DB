@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
 /**
- * Task management
+ * Domain management
  */
 class Domain extends CI_Controller
 {
@@ -30,6 +30,10 @@ class Domain extends CI_Controller
     	//instance the class
         $this->load->model('Domain_model');
         $data['domains'] = $this->Domain_model->getDomain();
+		
+		if ($this->Domain_model->checkDomains() != NULL) {
+			$data['dates'] = $this->Domain_model->checkDomains();	
+		}
 		
     	//load the view associated with this controller
     	$this->load->view('admin/domains_list', $data);
