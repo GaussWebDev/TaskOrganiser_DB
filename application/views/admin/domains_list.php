@@ -7,6 +7,16 @@
 			<?php $this->load->view('nav'); ?>	
 		</div>		
 		<div>
+			<div>
+<?php if(isset($dates)) { ?>
+				<p>Following domains expire within a week:</p>
+				<table><thead><tr><th><?php echo lang('lbl_domain'); ?></th></tr></thead><tbody>
+<?php 	foreach ($dates as $date): ?>
+						<tr><td><?php echo $date['domain'];  ?></td></tr>
+<?php 	endforeach;	} ?>
+					</tbody>
+				</table>
+			</div>
 			<table>
 				<thead>
 					<tr>
@@ -32,7 +42,7 @@
 						<td><a href="<?php echo site_url('domains/edit'), '/', $domain['ID_domain']; ?>"><?php echo lang('lbl_update'); ?></a></td>
 						<td><a href="<?php echo site_url('domains/delete'), '/', $domain['ID_domain']; ?>"><?php echo lang('lbl_delete'); ?></a></td>
 					</tr>
-<?php endforeach ?>
+<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
