@@ -35,9 +35,12 @@ $lang['msg_subject_new_account'] = "Account opened";
 //Insert Task messages
 $lang['msg_new_task_fail'] = "Failed to create a new task";
 $lang['msg_new_task_success'] = "A new task was created successfully";
-//Insert Domaim messages
+//Insert Domain messages
 $lang['msg_new_domain_fail'] = "Failed to create a new domain";
 $lang['msg_new_domain_success'] = "A new domain was created successfully";
+//Insert Todo messages
+$lang['msg_new_todo_fail'] = "Failed to create a new To do note";
+$lang['msg_new_todo_success'] = "A new To do note was created successfully";
 
 $lang['msg_update_user_success'] = "User updated successfully";
 $lang['msg_update_user_fail'] = "User update failed";
@@ -57,6 +60,9 @@ $lang['msg_delete_task_fail'] = "Failed to delete Task";
 //Delete Domain messages
 $lang['msg_delete_domain_success'] = "Domain deleted successfully";
 $lang['msg_delete_domain_fail'] = "Failed to delete a Domain";
+//Delete Todo messages
+$lang['msg_delete_todo_success'] = "To do note deleted successfully";
+$lang['msg_delete_todo_fail'] = "Failed to delete a To do note";
 
 $lang['msg_project_update_success'] = "Project updated successfully";
 
