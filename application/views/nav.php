@@ -11,7 +11,7 @@
     <li>Upload file</li>
     <ul>
         <li><a href="<?php echo site_url('upload'); ?>">New upload</a></li>
-        <?php $project_id = $this->session->userdata('project_id'); ?>
+        <?php $project_id = $this->User_model->getActiveProject(); ?>
         <li><a href="<?php echo site_url("upload/upload_list/{$project_id}"); ?>">List</a></li>
     </ul>
     

@@ -94,7 +94,6 @@ class Admin extends CI_Controller
                 }
             }
         }
-
         $this->load->view('admin/users_add', $data);
     }
 

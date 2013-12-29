@@ -45,16 +45,38 @@ class Upload extends CI_Controller
             if($this->upload_model->insert_upload_data($comment, $upload_data['full_path'], $id, $project_id))
             {
                 $data = array('upload_data' => $this->upload->data());
-                $this->load->view('upload/upload_success', $data);
+                $project_id = $this->session->userdata('project_id');              
+                $this->upload_list($project_id);
             }
         }
     }
 
     function upload_list($project_id)
     {
+        $data['permission'] = $this->User_model->getPermissions();
         $id = $this->User_model->getID(); 
         $data['upload_data'] = $this->upload_model->list_by_project_id($project_id, $id);
         $this->load->view('upload/upload_list', $data);
     }
-  
+
+    function download_item($name)
+    {
+        $fullpath = base_url("uploads/{$name}");
+        $data = file_get_contents($fullpath); // Read the file's contents
+        force_download($name, $data);
+        redirect('upload/upload_list');
+    }
+    
+    function delete_item($id_file)
+    {
+        $url = $this->upload_model->get_url_by_id($id_file);
+        if($this->upload_model->delete_file($id_file) === true)
+        {
+            if(unlink($url->url) === true)
+            {
+                $project_id = $this->User_model->getActiveProject();
+                redirect("upload/upload_list/{$project_id}");
+            }
+        }   
+    }  
 }
