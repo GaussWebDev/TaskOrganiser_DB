@@ -31,7 +31,7 @@ class Task extends CI_Controller
         $this->load->model('Task_model');
 		$id_user = $this->User_model->getID();
 		$data['name'] = $this->User_model->getID();
-        $data['tasks'] = $this->Task_model->getTask(NULL, '1');
+        $data['tasks'] = $this->Task_model->getTask(NULL, $this->User_model->getActiveProject());
 		
     	//load the view associated with this controller
     	$this->load->view('task/task', $data);
@@ -77,7 +77,8 @@ class Task extends CI_Controller
                     'date_start' => $this->input->post('date_start'),
                     'comment' => $this->input->post('comment'),
                     'billable' => $this->input->post('billable'),
-                    'ID_project_fk' => '1', //TODO: modify it to get the ID of the selected project from the DDL                    
+                    //'ID_project_fk' => '1', //TODO: modify it to get the ID of the selected project from the DDL
+                    'ID_project_fk' => $this->User_model->getActiveProject(),                    
                     'ID_user_fk' => $this->User_model->getID(),
 				);
                 
@@ -178,7 +179,7 @@ class Task extends CI_Controller
 		//populate the table and reload the view
 	 	$id_user = $this->User_model->getID();
 		$data['name'] = $this->User_model->getID();
-        $data['tasks'] = $this->Task_model->getTask(NULL, '1');
+        $data['tasks'] = $this->Task_model->getTask(NULL, $this->User_model->getActiveProject());
 		
     	//load the view associated with this controller
     	$this->load->view('task/task', $data);
