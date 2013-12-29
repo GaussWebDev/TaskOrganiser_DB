@@ -21,7 +21,7 @@
     <li>TODO</li>
     <ul>
         <li><a href="<?php echo site_url('todo/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('todo'); ?>">List</a></li>
+        <li><a href="<?php echo site_url('todo/all'); ?>">List</a></li>
     </ul>
 <?php $projects = $this->Project_model->listUserProjects(); ?>
     <li>Projects</li>
