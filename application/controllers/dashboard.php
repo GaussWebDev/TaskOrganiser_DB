@@ -17,14 +17,15 @@ class Dashboard extends CI_Controller
     */
     public function index()
     {
-        $data['name'] = $this->User_model->getFullName();
-
         switch($this->User_model->getPermissions()) {
-            case 100: //admin
-                $this->load->view('dashboard/admin', $data);
+            case 100: //adminž
+                $this->load->view('header');
+                $this->load->view('nav');
+                $this->load->view('dashboard/admin');
+                $this->load->view('footer');
                 break;
             default:
-                $this->load->view('dashboard/default', $data);
+                $this->load->view('dashboard/default');
                 break;
         }
     }

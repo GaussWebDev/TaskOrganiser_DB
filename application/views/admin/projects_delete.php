@@ -1,4 +1,4 @@
-<?php $this->load->view('nav'); ?>
+<div class="main-content">
 
 <?php if (isset($confirm) == true): ?>
     <form action="<?php echo site_url('projects/remove'), '/', $id; ?>" method="post">
@@ -10,3 +10,4 @@
 <?php if (isset($notify) == true): ?>
     <p><?php echo $notify; ?></p>
 <?php endif; ?>
+</div>

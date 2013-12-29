@@ -1,3 +1,3 @@
-<p><?php echo $name; ?>, admin</p>
-
-<?php $this->load->view('nav'); ?>
+<div class="main-content">
+<p>Welcome to admin page! <br><br> <?php echo $this->User_model->getFullName();?></p>
+</div>

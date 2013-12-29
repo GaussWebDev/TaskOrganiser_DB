@@ -1,5 +1,4 @@
-<?php $this->load->view('nav'); ?>
-
+<div class="main-content">
 <?php if (isset($user['ID_user']) == false): ?>
 <form action="<?php echo site_url('users/add'); ?>" method="post">
 <?php else: ?>
@@ -29,3 +28,4 @@
         <?php echo $notify; ?>
     </div>
 <?php endif; ?>
+</div>

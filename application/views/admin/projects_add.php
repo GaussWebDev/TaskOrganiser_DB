@@ -1,4 +1,4 @@
-<?php $this->load->view('nav'); ?>
+<div class="main-content">
 
 <?php if (isset($info['ID_project']) == false): ?>
 <form action="<?php echo site_url('/projects/add'); ?>" method="post">
@@ -40,3 +40,4 @@
         <?php echo $notify; ?>
     </div>
 <?php endif; ?>
+</div>

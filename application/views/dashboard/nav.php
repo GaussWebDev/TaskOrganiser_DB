@@ -10,7 +10,7 @@
 <div class="side-bar-wrapper collapse navbar-collapse navbar-ex1-collapse">
   <a href="<?php echo site_url('dashboard'); ?>" class="logo hidden-sm hidden-xs">
     <i class="icon-cloud-download"></i>
-    <span><?php echo $this->User_model->getFullName();?></span>
+    <span><?php echo $name; ?></span>
   </a>
   <div class="search-box">
     <input type="text" placeholder="SEARCH" class="form-control">
@@ -25,7 +25,6 @@
   <div class="relative-w">
     <ul class="side-menu">
 
-<<<<<<< HEAD
     <?php 
     if ($this->User_model->getPermissions() == 100) 
     { 
@@ -116,7 +115,7 @@
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <?php $projects = $this->Project_model->listUserProjects(); ?>
-          <i class="icon-bar-chart"></i> Projects List
+          <i class="icon-bar-chart"></i> Projects
         </a>
         <ul>
           <?php foreach ($projects as $project): ?>
@@ -177,36 +176,6 @@
         </ul>
       </li>
     <?php endif; ?>
-=======
-<ul id="developer_menu">
-<?php if ($this->User_model->getActiveProject() != false): ?>
-    <li><a href="<?php echo site_url('discussions'); ?>">Discussions</a></li>
-    <li>Tasks</li>
-    <ul>
-        <li><a href="<?php echo site_url('task/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('task/all'); ?>">List</a></li>
-    </ul>
-    <li>Upload file</li>
-    <ul>
-        <li><a href="<?php echo site_url('upload'); ?>">New upload</a></li>
-        <?php $project_id = $this->User_model->getActiveProject(); ?>
-        <li><a href="<?php echo site_url("upload/upload_list/{$project_id}"); ?>">List</a></li>
-    </ul>
-    
-    <li>- - - - - -</li>
-<?php endif; ?>
-    <li><a href="<?php echo site_url('dashboard'); ?>">Dashboard</a></li>
-    <li>TODO</li>
-    <ul>
-        <li><a href="<?php echo site_url('todo/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('todo/all'); ?>">List</a></li>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
-=======
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
-=======
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
     </ul>
     </ul>
   </div>

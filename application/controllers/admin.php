@@ -25,8 +25,10 @@ class Admin extends CI_Controller
         //get user list from database
         $this->load->model('Account_model');
         $data['users'] = $this->Account_model->getAll();
-
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/users_list', $data);
+        $this->load->view('footer', $data);
     }
 
     /**
@@ -94,7 +96,11 @@ class Admin extends CI_Controller
                 }
             }
         }
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/users_add', $data);
+        $this->load->view('footer', $data);
+        
     }
 
     /**
@@ -162,8 +168,11 @@ class Admin extends CI_Controller
     {
         // TODO: List only active??
         $data['projects'] = $this->Project_model->getAll();
-
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/projects_list', $data);
+        $this->load->view('footer', $data);
+        
     }
 
     /**
@@ -208,7 +217,10 @@ class Admin extends CI_Controller
             }
         }
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/projects_add', $data);
+        $this->load->view('footer', $data);
     }
 
     /**
@@ -257,7 +269,10 @@ class Admin extends CI_Controller
         $data['info'] = $this->Project_model->getInfo($id);
         $data['assignees'] = $this->Project_model->getAssignees($id);
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/projects_add', $data);
+        $this->load->view('footer', $data);
     }
 
     /**
@@ -297,8 +312,11 @@ class Admin extends CI_Controller
             $data['id'] = $id;
             $this->session->set_userdata('prj_confirm',$confirm);
         }
-
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/projects_delete.php', $data);
+        $this->load->view('footer', $data);
+        
     }
 
     /**
