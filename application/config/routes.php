@@ -35,6 +35,9 @@ $route['task/all'] = "task/task_list";
 $route['task/add'] = "task/task_add";
 $route['task/edit/(:num)'] = "task/task_edit/$1";
 $route['task/delete/(:num)'] = "task/task_delete/$1";
+$route['todo/all'] = "todo/todo_list";
+$route['todo/add'] = "todo/todo_add";
+$route['todo/delete/(:num)'] = "todo/todo_delete/$1";
 /*
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
