@@ -6,6 +6,19 @@
 class Discussion_model extends CI_Model
 {
     /**
+    * List all threads
+    *
+    * @param string $prj_id Related project Id
+    * @return array Array containing all database records for requested project
+    */
+    public function listThreads($prj_id)
+    {
+        $this->db->where('ID_project_fk', $prj_id);
+        $query = $this->db->get('threads');
+
+        return $query->result_array();
+    }
+    /**
     * Add new thread
     *
     * @param string $title Thread title
@@ -18,7 +31,7 @@ class Discussion_model extends CI_Model
         $date = new DateTime($date_time);
         $info = array(
             'title' => $title,
-            'date_time_start' => $date->format('Y-m-d'),
+            'date_time_start' => $date->format('Y-m-d H:i:s'),
             'ID_project_fk' => $prj_id);
 
         // add thread
@@ -42,10 +55,20 @@ class Discussion_model extends CI_Model
     * @param string $thread_id Id of related thread
     * @param string $user_id Id of post author
     * @param string $text Post message
+    * @param string $date_time Optional timestamp. If '', current datetime is used
     */
-    public function addPost($thread_id, $user_id, $text)
+    public function addPost($thread_id, $user_id, $text, $date_time='')
     {
-        // TODO: write this function
+        // prepare data
+        $date = new DateTime($date_time);
+        $info = array(
+            'ID_thread_fk' => $thread_id,
+            'ID_user_fk' => $user_id,
+            'text' => $text,
+            'date_time_post' => $date->format('Y-m-d H:i:s'));
+
+        // add post
+        $this->db->insert('posts', $info);
     }
 
     /**
@@ -55,7 +78,8 @@ class Discussion_model extends CI_Model
     */
     public function deletePost($post_id)
     {
-        // TODO: write this function
+        $this->db->where('ID_post', $post_id);
+        $this->db->delete('posts');
     }
 
     /**
@@ -66,6 +90,9 @@ class Discussion_model extends CI_Model
     */
     public function listPosts($thread_id)
     {
-        // TODO: write this function
+        $this->db->where('ID_thread_fk', $thread_id);
+        $query = $this->db->get('posts');
+
+        return $query->result_array();
     }
 }
