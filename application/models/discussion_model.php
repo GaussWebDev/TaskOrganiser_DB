@@ -12,9 +12,17 @@ class Discussion_model extends CI_Model
     * @param string $prj_id Related project Id
     * @param string $date_time Optional timestamp. If '', current datetime is used
     */
-    public function addThread($tilte, $prj_id, $date_time='')
+    public function addThread($title, $prj_id, $date_time='')
     {
-        // TODO: Write this function
+        // prepare data
+        $date = new DateTime($date_time);
+        $info = array(
+            'title' => $title,
+            'date_time_start' => $date->format('Y-m-d'),
+            'ID_project_fk' => $prj_id);
+
+        // add thread
+        $this->db->insert('threads', $info);
     }
 
     /**
@@ -24,7 +32,8 @@ class Discussion_model extends CI_Model
     */
     public function deleteThread($thread_id)
     {
-        // TODO: Write this function
+        $this->db->where('ID_thread', $thread_id);
+        $this->db->delete('threads');
     }
 
     /**
