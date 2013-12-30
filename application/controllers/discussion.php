@@ -18,14 +18,19 @@ class Discussion extends CI_Controller
         if ($this->User_model->getActiveProject() == false) {
             redirect(site_url('dashboard'));
         }
+
+        $this->load->model('Discussion_model');
     }
 
     /**
     * Show all threads
     */
-    function index()
+    public function index()
     {
-        // TODO: write this function
+        $id = $this->User_model->getActiveProject();
+        $data['threads'] = $this->Discussion_model->listThreads($id);
+
+        $this->load->view('discussions/threads', $data);
     }
 
     /**
@@ -33,9 +38,15 @@ class Discussion extends CI_Controller
     *
     * @param string $id Thread Id
     */
-    function thread($id)
+    public function thread($id)
     {
-        // TODO: write this function
+        if ($this->Discussion_model->inProject($id, $this->User_model->getActiveProject()) != true) {
+            redirect(site_url('discussion'));
+        }
+        
+        $data['posts'] = $this->Discussion_model->listPosts($id);
+
+        $this->load->view('discussions/posts', $data);
     }
 
     /**
@@ -43,14 +54,14 @@ class Discussion extends CI_Controller
     *
     * @param string $id Thread Id
     */
-    function delete($id){
+    public function delete($id){
 
     }
 
     /**
     * Add new post
     */
-    function post()
+    public function post()
     {
         // TODO: write this function
     }
@@ -60,7 +71,7 @@ class Discussion extends CI_Controller
     *
     * @param string $id Post id
     */
-    function unpublish($id)
+    public function unpublish($id)
     {
         // TODO: write this function
     }

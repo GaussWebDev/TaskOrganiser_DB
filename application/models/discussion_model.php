@@ -95,4 +95,25 @@ class Discussion_model extends CI_Model
 
         return $query->result_array();
     }
+
+    /**
+    * Check if thread is assigned to project
+    *
+    * @param string $thread_id Thread Id
+    * @param string $prj_id Project Id
+    * @return bool True if thread is assigned, otherwise false
+    */
+    public function inProject($thread_id, $prj_id)
+    {
+        $this->db->where(array(
+            'ID_thread' => $thread_id,
+            'ID_project_fk' => $prj_id));
+        $query = $this->db->get('threads');
+
+        if ($query->num_rows() != 1) {
+            return false;
+        }
+
+        return true;
+    }
 }
