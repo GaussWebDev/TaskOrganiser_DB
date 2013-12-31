@@ -68,3 +68,6 @@ $lang['msg_project_update_success'] = "Project updated successfully";
 
 $lang['err_no_project'] = "Project doesn't exist";
 $lang['msg_prj_delete_success'] = "Project deleted";
+
+$lang['err_no_thread'] = "Thread doesn't exist";
+$lang['msg_thread_delete_success'] = "Thread deleted";

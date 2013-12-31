@@ -45,6 +45,11 @@ class Discussion_model extends CI_Model
     */
     public function deleteThread($thread_id)
     {
+        // remove posts
+        $this->db->where('ID_thread_fk', $thread_id);
+        $this->db->delete('posts');
+
+        // delete thread
         $this->db->where('ID_thread', $thread_id);
         $this->db->delete('threads');
     }

@@ -8,6 +8,7 @@ class Discussion extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->lang->load('account', $this->User_model->getLanguage());
 
         // require user to be logged in
         if ($this->User_model->isLoggedIn() == false) {
@@ -40,7 +41,8 @@ class Discussion extends CI_Controller
     */
     public function thread($id)
     {
-        if ($this->Discussion_model->inProject($id, $this->User_model->getActiveProject()) != true) {
+        $active_id = $this->User_model->getActiveProject();
+        if ($this->Discussion_model->inProject($id, $active_id) != true) {
             redirect(site_url('discussion'));
         }
         
@@ -55,7 +57,39 @@ class Discussion extends CI_Controller
     * @param string $id Thread Id
     */
     public function delete($id){
+        $data = array();
 
+         // Thread belongs to project and exists
+        $active_id = $this->User_model->getActiveProject();
+        if ($this->Discussion_model->inProject($id, $active_id) != true) {
+            // no thread, display error
+            $data['notify'] = lang('err_no_thread');
+
+        } else if ($this->input->post() != false) {
+            // request confirmation
+            $confirm_code = $this->input->post('confirm');
+            $confirm_nonce = $this->session->userdata('thread_confirm');
+            $this->session->unset_userdata('thread_confirm');
+
+            // validate nonce
+            if ($confirm_nonce != $confirm_code) {
+                // validation failed, redirect
+                redirect(base_url());
+            }
+
+            // request OK, delete thread
+            $this->Discussion_model->deleteThread($id);
+            $data['notify'] = lang('msg_thread_delete_success');
+        } else {
+            // require user confirmation
+            // random string as confirmation to prevent accidental delete
+            $confirm = random_string('alnum', 10);
+            $data['confirm'] = $confirm;
+            $data['id'] = $id;
+            $this->session->set_userdata('thread_confirm',$confirm);
+        }
+
+        $this->load->view('discussions/thread_delete.php', $data);
     }
 
     /**
