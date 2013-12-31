@@ -71,3 +71,4 @@ $lang['msg_prj_delete_success'] = "Project deleted";
 
 $lang['err_no_thread'] = "Thread doesn't exist";
 $lang['msg_thread_delete_success'] = "Thread deleted";
+$lang['msg_post_delete_success'] = "Post deleted";

@@ -107,7 +107,33 @@ class Discussion extends CI_Controller
     */
     public function unpublish($id)
     {
-        // TODO: write this function
+        $data = array();
+
+        if ($this->input->post() != false) {
+            // request confirmation
+            $confirm_code = $this->input->post('confirm');
+            $confirm_nonce = $this->session->userdata('post_confirm');
+            $this->session->unset_userdata('post_confirm');
+
+            // validate nonce
+            if ($confirm_nonce != $confirm_code) {
+                // validation failed, redirect
+                redirect(base_url());
+            }
+
+            // request OK, delete post
+            $this->Discussion_model->deletePost($id);
+            $data['notify'] = lang('msg_post_delete_success');
+        } else {
+            // require user confirmation
+            // random string as confirmation to prevent accidental delete
+            $confirm = random_string('alnum', 10);
+            $data['confirm'] = $confirm;
+            $data['id'] = $id;
+            $this->session->set_userdata('post_confirm',$confirm);
+        }
+
+        $this->load->view('discussions/post_delete.php', $data);
     }
 
 }
