@@ -39,7 +39,7 @@ class Discussion extends CI_Controller
     */
     public function add()
     {
-        // set default ouput url
+        // set default output url
         $redirect_url = site_url('discussion');
 
         // handle user input
@@ -72,6 +72,7 @@ class Discussion extends CI_Controller
         }
         
         $data['posts'] = $this->Discussion_model->listPosts($id);
+        $data['thread'] = $id;
 
         $this->load->view('discussions/posts', $data);
     }
@@ -122,7 +123,28 @@ class Discussion extends CI_Controller
     */
     public function post()
     {
-        // TODO: write this function
+        // set default output url
+        $redirect_url = site_url('discussion');
+
+        // handle user input
+        if ($this->input->post() != false) {
+            $msg = $this->input->post('message');
+            $thread_id = $this->input->post('thread');
+
+            if ($thread_id != false) {
+                // redirect to thread
+                $redirect_url = site_url('discussion/thread') . '/' . $thread_id;
+
+                if ($msg != false && $thread_id != false) {
+                    // add post
+                    $user_id =$this->User_model->getId();
+                    $this->Discussion_model->addPost($thread_id, $user_id, $msg);
+                }
+            }
+        }
+
+        // redirect
+        redirect($redirect_url);
     }
 
     /**
