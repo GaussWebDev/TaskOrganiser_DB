@@ -24,6 +24,7 @@ class Discussion_model extends CI_Model
     * @param string $title Thread title
     * @param string $prj_id Related project Id
     * @param string $date_time Optional timestamp. If '', current datetime is used
+    * @return string Thread Id
     */
     public function addThread($title, $prj_id, $date_time='')
     {
@@ -36,6 +37,15 @@ class Discussion_model extends CI_Model
 
         // add thread
         $this->db->insert('threads', $info);
+
+        // grab record from database
+        $this->db->where($info);
+        $this->db->select('ID_thread');
+        $query = $this->db->get('threads');
+
+        // return id
+        $result = $query->row_array();
+        return $result['ID_thread'];
     }
 
     /**

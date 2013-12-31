@@ -35,6 +35,31 @@ class Discussion extends CI_Controller
     }
 
     /**
+    * Add new thread
+    */
+    public function add()
+    {
+        // set default ouput url
+        $redirect_url = site_url('discussion');
+
+        // handle user input
+        if ($this->input->post() != false) {
+            $title = $this->input->post('title');
+            if ($title != false) {
+                // add project
+                $prj_id = $this->User_model->getActiveProject();
+                $new_thread = $this->Discussion_model->addThread($title, $prj_id);
+
+                // redirect to new thread
+                $redirect_url = site_url('discussion/thread') . '/' . $new_thread;
+            }
+        }
+
+        // redirect
+        redirect($redirect_url);
+    }
+
+    /**
     * Show posts in thread
     *
     * @param string $id Thread Id
