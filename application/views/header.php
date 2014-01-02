@@ -16,7 +16,7 @@
 <!--[if lt IE 9]>
   @javascript html5shiv respond.min
 <![endif]-->
-<title>Responsive Admin template based on Bootstrap 3</title>
+<title>TaskOrganiser</title>
 </head>
 <body>
 <div class="all-wrapper">

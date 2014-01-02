@@ -9,7 +9,7 @@
 <!-- This is left menu! -->
 <div class="side-bar-wrapper collapse navbar-collapse navbar-ex1-collapse">
   <a href="<?php echo site_url('dashboard'); ?>" class="logo hidden-sm hidden-xs">
-    <i class="icon-cloud-download"></i>
+    <i class="icon-group"></i>
     <span><?php echo $name; ?></span>
   </a>
   <div class="search-box">
@@ -18,7 +18,7 @@
   <ul class="side-menu">
     <li>
       <a href="<?php echo site_url('dashboard'); ?>">
-        <i class="icon-flag"></i> Dashboard
+        <i class="icon-cogs"></i> Dashboard
       </a>
     </li>
   </ul>
@@ -32,12 +32,12 @@
       <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Users
+          <i class="icon-user"></i> Users
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('users/all'); ?>">
-              <i class="icon-random"></i>
+              <i class=" icon-list"></i>
               List all users
             </a>
           </li>
@@ -52,12 +52,12 @@
       <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Projects
+          <i class=" icon-briefcase"></i> Projects
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('projects/all'); ?>">
-              <i class="icon-random"></i>
+              <i class="icon-list-ol"></i>
               List projects
             </a>
           </li>
@@ -72,12 +72,12 @@
       <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Domains
+          <i class="icon-plus-sign"></i> Domains
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('domains/all'); ?>">
-              <i class="icon-random"></i>
+              <i class=" icon-unlock"></i>
               List domains
             </a>
           </li>
@@ -93,18 +93,18 @@
        <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> TODO
+          <i class="icon-check"></i> TODO
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('todo/add'); ?>">
-              <i class="icon-random"></i>
+              <i class="icon-check-empty"></i>
               Add
             </a>
           </li>
           <li>
             <a href="<?php echo site_url('todo'); ?>">
-              <i class="icon-bullseye"></i>
+              <i class=" icon-calendar-empty"></i>
               List
             </a>
           </li>
@@ -115,13 +115,13 @@
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <?php $projects = $this->Project_model->listUserProjects(); ?>
-          <i class="icon-bar-chart"></i> Projects
+          <i class="icon-briefcase"></i> Projects
         </a>
         <ul>
           <?php foreach ($projects as $project): ?>
           <li>
             <a href="<?php echo site_url('dashboard/project'), '/', $project['ID_project']; ?>">
-              <i class="icon-random"></i><?php echo $project['title']; ?>
+              <i class="icon-puzzle-piece"></i><?php echo $project['title']; ?>
             </a>
           </li>
           <?php endforeach; ?>
@@ -132,24 +132,24 @@
        <li>
         <a href="<?php echo site_url('discussions'); ?>" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Discussions
+          <i class="icon-comments"></i> Discussions
         </a>
       </li>
       <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Tasks
+          <i class="icon-edit"></i> Tasks
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('task/add'); ?>">
-              <i class="icon-random"></i>
+              <i class="icon-bullseye"></i>
               Add
             </a>
           </li>
           <li>
             <a href="<?php echo site_url('task/all'); ?>">
-              <i class="icon-bullseye"></i>
+              <i class="icon-sort-by-attributes-alt"></i>
               List
             </a>
           </li>
@@ -158,18 +158,18 @@
       <li>
         <a href="charts.html" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
-          <i class="icon-bar-chart"></i> Upload file
+          <i class="icon-cloud-upload"></i> Upload file
         </a>
         <ul>
           <li>
             <a href="<?php echo site_url('upload'); ?>">
-              <i class="icon-random"></i>
+              <i class="icon-upload-alt"></i>
               New upload
             </a>
           </li>
           <li>
             <a href="<?php echo site_url('task/all'); ?>">
-              <i class="icon-bullseye"></i>
+              <i class="icon-cloud"></i>
               List
             </a>
           </li>
@@ -187,7 +187,7 @@
 
 <!-- This is dashboard header and menu -->
 <div class="col-md-9">
-  <div class="content-wrapper wood-wrapper">
+  <div class="content-wrapper ">
     <div class="content-inner">
       <div class="page-header">
       <div class="header-links hidden-xs">

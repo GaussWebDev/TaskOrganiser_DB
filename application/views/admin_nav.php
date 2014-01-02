@@ -1,5 +1,5 @@
 <ul id="admin_panel">
-    <li><strong>admin only panel</strong></li>
+    <li><strong>Admin panel</strong></li>
     <li>Users</li>
     <ul>
         <li><a href="<?php echo site_url('users/all'); ?>">List all users</a></li>

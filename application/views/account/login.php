@@ -42,8 +42,9 @@
                 <label>Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Password">
               </div>
+              <a href="#">Forgot your password?</a>
   
-              <div class="form-group">
+              <div class="form-group" >
                	 <input type="submit" value="Sign in" class="btn btn-primary btn-lg">
               </div>
               
