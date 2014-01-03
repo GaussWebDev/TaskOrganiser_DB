@@ -6706,12 +6706,10 @@ td.visible-print {
   margin-right: 10px;
 }
 .content-wrapper .page-header .header-links {
-  border-bottom: 1px solid #3498DB;
-  -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
+  
   padding-bottom: 5px;
-  margin-top: -10px;
   float: right;
+  padding-right:5px;
 }
 .content-wrapper .page-header .header-links > a {
   color: #fff;
@@ -6721,6 +6719,7 @@ td.visible-print {
   font-weight: 300;
   font-size: 11px;
   text-transform: uppercase;
+
 }
 .content-wrapper .page-header .header-links > a:first-child {
   border-left: none;
@@ -7752,10 +7751,30 @@ table .checkbox {
   background-repeat: repeat;
   background-position: top left;
 }
-#currentuser p
-{
+.header-links li{
+  text-align: right;
+  margin-bottom:-5px;
+}
+#currentuser p{
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  font-weight: 300;
+
+  
+}
+.add-form {
+width: 30%;
+display: inline-block;
+margin-top:-30px;
 font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 font-size: 14px;
 line-height: 1.42857;
-color:#2980B9;
+
+}
+.add-form label{
+font-weight: 400;
+margin-bottom: 5px;
+
+
 }
