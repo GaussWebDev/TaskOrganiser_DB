@@ -172,7 +172,8 @@
             </a>
           </li>
           <li>
-            <a href="<?php echo site_url('task/all'); ?>">
+            <?php $prj_id = $this->User_model->getActiveProject(); ?>
+            <a href="<?php echo site_url('upload/upload_list'),'/',$prj_id; ?>">
               <i class="icon-cloud"></i>
               List
             </a>
@@ -180,31 +181,6 @@
         </ul>
       </li>
     <?php endif; ?>
-
-<ul id="developer_menu">
-<?php if ($this->User_model->getActiveProject() != false): ?>
-    <li><a href="<?php echo site_url('discussions'); ?>">Discussions</a></li>
-    <li>Tasks</li>
-    <ul>
-        <li><a href="<?php echo site_url('task/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('task/all'); ?>">List</a></li>
-    </ul>
-    <li>Upload file</li>
-    <ul>
-        <li><a href="<?php echo site_url('upload'); ?>">New upload</a></li>
-        <?php $project_id = $this->User_model->getActiveProject(); ?>
-        <li><a href="<?php echo site_url("upload/upload_list/{$project_id}"); ?>">List</a></li>
-    </ul>
-    
-    <li>- - - - - -</li>
-<?php endif; ?>
-    <li><a href="<?php echo site_url('dashboard'); ?>">Dashboard</a></li>
-    <li>TODO</li>
-    <ul>
-        <li><a href="<?php echo site_url('todo/add'); ?>">Add</a></li>
-        <li><a href="<?php echo site_url('todo/all'); ?>">List</a></li>
-    </ul>
-    </ul>
   </div>
 </div>
     </div>
