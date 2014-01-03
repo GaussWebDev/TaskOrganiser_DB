@@ -196,8 +196,9 @@
       <div class="header-links hidden-xs">
         <ul>
 
-      <li><a href="<?php echo site_url('account/logout'); ?>"><i class="icon-signout"></i> Logout</a></li>
-      <li><p id="currentuser" ><i class="icon-male"> <?php echo $this->User_model->getFullName();?></i></p></li>
+      
+      <li><p id="currentuser" ><i class="icon-user"></i> <?php echo $this->User_model->getFullName();?></p></li>
+      <li><a href="<?php echo site_url('account/logout'); ?>"><i class=" icon-power-off"></i> Logout</a></p></li>
 
        </ul>
     </div>
