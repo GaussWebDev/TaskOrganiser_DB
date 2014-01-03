@@ -7,7 +7,6 @@
 <?php 	endforeach;	} ?>
 					</tbody>
 				</table>
-			</div>
 			<table>
 				<thead>
 					<tr>
@@ -36,7 +35,6 @@
 <?php endforeach; ?>
 				</tbody>
 			</table>
-		</div>
 <?php if(isset($notify) == true): ?>
     	<div>
 			<?php echo $notify; ?>
