@@ -15,7 +15,10 @@ class Upload extends CI_Controller
 
     function index()
     {
+        $this->load->view('header');
+        $this->load->view('nav');
         $this->load->view('upload/upload_form', array('error' => ' ' ));
+        $this->load->view('footer');
     }
 
     function do_upload()
@@ -32,7 +35,10 @@ class Upload extends CI_Controller
         {
             $error = array('error' => $this->upload->display_errors());
 
+            $this->load->view('header', $data);
+            $this->load->view('nav', $data);
             $this->load->view('upload/upload_form', $error);
+            $this->load->view('footer', $data);    
         }
         else
         {   
@@ -57,7 +63,11 @@ class Upload extends CI_Controller
         $id = $this->User_model->getID(); 
         $project_id = $this->User_model->getActiveProject();
         $data['upload_data'] = $this->upload_model->list_by_project_id($project_id, $id);
+
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('upload/upload_list', $data);
+        $this->load->view('footer', $data);   
     }
 
     function download_item($name)

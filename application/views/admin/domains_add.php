@@ -1,12 +1,4 @@
-<html>
-	<head>
-		<title>Domain Insert Form</title>
-	</head>
-	<body>
-		<div>
-			<?php $this -> load -> view('nav'); ?>
-		</div>
-		<div>
+<div class="main-content">
 			<form action="<?php if (isset($domain['ID_domain']) == false) {echo site_url('/domains/add');} else {echo site_url('/domains/edit'), '/', $domain['ID_domain'];} ?>" method="post">
 				<p><?php echo lang('lbl_date_time_start'); ?> (yyyy-MM-dd hh:mm:ss): <input type="datetime" name="date_time_start" value="<?php if(isset($domain['date_time_start']) == TRUE) echo $domain['date_time_start'];	?>"></p>
 				<p><?php echo lang('lbl_date_time_expires'); ?> (yyyy-MM-dd hh:mm:ss): <input type="datetime" name="date_time_expires" value="<?php if(isset($domain['date_time_expires']) == TRUE) echo $domain['date_time_expires']; ?>"></p>
@@ -39,5 +31,4 @@
 			<?php echo $notify; ?>
     	</div>
 <?php endif; ?>
-	</body>
-</html> 
+</div>

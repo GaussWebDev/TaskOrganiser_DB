@@ -1,4 +1,4 @@
-<?php $this->load->view('nav'); ?>
+<div class="main-content">
 
 <table border="1">
 	<tr>
@@ -28,4 +28,4 @@
 
 </table>
 
-
+</div>

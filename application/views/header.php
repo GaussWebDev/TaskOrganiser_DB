@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/fullcalendar.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/datatables/datatables.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/datatables/bootstrap.datatables.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/chosen.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/font-awesome/font-awesome.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/app.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/css/fullcalendar.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/css/datatables/datatables.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/css/datatables/bootstrap.datatables.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/scss/chosen.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/scss/font-awesome/font-awesome.css'>
+<link rel='stylesheet' href='<?php echo site_url(); ?>assets/css/app.css'>
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url(); ?>assets/favicon.ico" rel="shortcut icon">
 <link href="<?php echo base_url(); ?>assets/apple-touch-icon.png" rel="apple-touch-icon">

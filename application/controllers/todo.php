@@ -32,7 +32,11 @@ class Todo extends CI_Controller
         $data['todos'] = $this->Todo_model->getTodo($this->User_model->getID());
 		
     	//load the view associated with this controller
-    	$this->load->view('todo/todo', $data);
+    	$this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('todo/todo', $data);
+        $this->load->view('footer');
+    	
     }
 
 
@@ -82,7 +86,11 @@ class Todo extends CI_Controller
         } 
 		
 		//Load the associated view
-	 	$this->load->view('todo/add', $data);
+		 $this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('todo/add', $data);
+        $this->load->view('footer');
+	 	
 	 }
 
 

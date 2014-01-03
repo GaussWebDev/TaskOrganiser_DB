@@ -36,7 +36,10 @@ class Domain extends CI_Controller
 		}
 		
     	//load the view associated with this controller
-    	$this->load->view('admin/domains_list', $data);
+        $this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('admin/domains_list', $data);
+        $this->load->view('footer');
     }
 
 
@@ -108,7 +111,10 @@ class Domain extends CI_Controller
 		$data['domain'] = array('ID_user_fk' => NULL); 
 		
 		//Load the associated view
-	 	$this->load->view('admin/domains_add', $data);
+        $this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('admin/domains_add', $data);
+        $this->load->view('footer');
 	 }
 
 
@@ -178,7 +184,10 @@ class Domain extends CI_Controller
         $this->load->model('Account_model');
         $data['users'] = $this->Account_model->getAll();
        	//Load the associated view
-	 	$this->load->view('admin/domains_add', $data);
+        $this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('admin/domains_add', $data);
+        $this->load->view('footer');
 	 }
 
 
@@ -203,7 +212,10 @@ class Domain extends CI_Controller
 	 	$data['domains'] = $this->Domain_model->getDomain();
 		
     	//load the view associated with this controller
-    	$this->load->view('admin/domains_list', $data);
+        $this->load->view('header');
+        $this->load->view('nav');
+        $this->load->view('admin/domains_list', $data);
+        $this->load->view('footer');
 	 }
 }
  

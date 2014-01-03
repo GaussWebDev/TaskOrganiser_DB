@@ -1,12 +1,4 @@
-<html>
-	<head>
-		<title>Todo List Form</title>
-	</head>
-	<body>
-		<div>
-			<?php $this->load->view('nav'); ?>	
-		</div>		
-		<div>
+<div class="main-content">
 			<table>
 				<thead>
 					<tr>
@@ -22,8 +14,4 @@
 						<td><a href="<?php echo site_url('todo/delete'), '/', $todo['ID_todo']; ?>"><?php echo lang('lbl_delete'); ?></a></td>
 					</tr>
 <?php endforeach ?>
-				</tbody>
-			</table>
-		</div>
-	</body>
-</html>
+</div>

@@ -1,10 +1,15 @@
 <!-- This is responsive menu!-->
-  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
+<script type="text/javascript">
+  $('#myDropdown').on('hide.bs.dropdown', function () {
+    return false;
+  });
+</script>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+  <span class="sr-only">Toggle navigation</span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</button>
 </div>
 <!-- This is left menu! -->
 <div class="side-bar-wrapper collapse navbar-collapse navbar-ex1-collapse">
@@ -29,12 +34,12 @@
     { 
     ?>
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class="icon-user"></i> Users
         </a>
         <ul>
-          <li>
+          <li id="myDropdown">
             <a href="<?php echo site_url('users/all'); ?>">
               <i class=" icon-list"></i>
               List all users
@@ -49,7 +54,7 @@
         </ul>
       </li>
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class="icon-briefcase"></i> Projects
         </a>
@@ -69,7 +74,7 @@
         </ul>
       </li>
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class="icon-plus-sign"></i> Domains
         </a>
@@ -90,7 +95,7 @@
       </li>
       <?php } ?>
        <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class="icon-check"></i> TODO
         </a>
@@ -102,7 +107,7 @@
             </a>
           </li>
           <li>
-            <a href="<?php echo site_url('todo'); ?>">
+            <a href="<?php echo site_url('todo/all'); ?>">
               <i class="icon-calendar-empty"></i>
               List
             </a>
@@ -111,7 +116,7 @@
       </li>
 
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <?php $projects = $this->Project_model->listUserProjects(); ?>
           <i class=" icon-sort-by-alphabet"></i> Projects List
@@ -135,7 +140,7 @@
         </a>
       </li>
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class=" icon-edit"></i> Tasks
         </a>
@@ -155,7 +160,7 @@
         </ul>
       </li>
       <li>
-        <a href="charts.html" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu">
           <span class="badge pull-right"></span>
           <i class="icon-cloud-upload"></i> Upload file
         </a>

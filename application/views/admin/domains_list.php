@@ -1,13 +1,4 @@
-<html>
-	<head>
-		<title>Domain List Form</title>
-	</head>
-	<body>
-		<div>
-			<?php $this->load->view('nav'); ?>	
-		</div>		
-		<div>
-			<div>
+<div class="main-content">
 <?php if(isset($dates)) { ?>
 				<p>Following domains expire within a week:</p>
 				<table><thead><tr><th><?php echo lang('lbl_domain'); ?></th></tr></thead><tbody>
@@ -51,5 +42,4 @@
 			<?php echo $notify; ?>
     	</div>
 <?php endif; ?>
-	</body>
-</html>
+</div>

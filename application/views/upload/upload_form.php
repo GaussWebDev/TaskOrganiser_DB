@@ -1,8 +1,4 @@
-<html>
-<head>
-<title>Upload Form</title><!-- FIXME: Use lang()!!! -->
-</head>
-<body>
+<div class="main-content">
 
 <?php echo $error;?>
 
@@ -15,8 +11,4 @@
 <br /><br />
 
 <input type="submit" value="upload" />
-
-</form>
-
-</body>
-</html>
+</div>

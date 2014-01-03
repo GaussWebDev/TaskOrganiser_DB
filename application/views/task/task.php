@@ -1,16 +1,5 @@
-<<<<<<< HEAD
 <div class="main-content">
-=======
-<html>
-	<head>
-		<title>Task List Form</title>
-	</head>
-	<body>
-		<div>
-			<?php $this->load->view('nav'); ?>	
-		</div>		
-		<div>
->>>>>>> fa3712116f883e851bc3996ec6ac8af1d588f0f9
+
 			<table>
 				<thead>
 					<tr>
