@@ -228,10 +228,5 @@
 
   <h1><i class="icon-cogs"></i> Dashboard</h1>
 </div>
-<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Bread</a></li>
-  <li><a href="#">Crumbs</a></li>
-  <li class="active">Example</li>
-</ol>
+<?php echo set_breadcrumb(); ?>
 <!-- End of dashboard header -->
