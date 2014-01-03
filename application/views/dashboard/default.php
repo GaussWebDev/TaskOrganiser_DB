@@ -1,5 +1,8 @@
 <div class="main-content">
-<p><?php echo $name; ?>, normal user</p>
-
-<?php $this->load->view('nav'); ?>
+ <h1>
+<?php 
+echo ucfirst($this->User_model->getFirstName());
+echo " ";
+echo ucfirst($this->User_model->getLastName());
+?></h1>
 </div>
