@@ -397,7 +397,7 @@ if ( ! function_exists('set_breadcrumb'))
                         {
                             $str .= $delimiter.$wrapper_inline[0].ucwords($val).$wrapper_inline[1];
                         } else {
-                            $str .= $delimiter.$wrapper_inline[0].anchor($str_link[$key], $val).$wrapper_inline[1];
+                            $str .= $delimiter.$wrapper_inline[0].anchor(current_url().'#', $val).$wrapper_inline[1];
                         }
                     }
 

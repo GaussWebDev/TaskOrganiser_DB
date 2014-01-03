@@ -69,7 +69,7 @@ $config['unlink_home'] = FALSE;
  * Default value:
  * $config['delimiter'] = ' > ';
  */
-$config['delimiter'] = " > ";
+$config['delimiter'] = "";
 
 /**
  * --------------------------
