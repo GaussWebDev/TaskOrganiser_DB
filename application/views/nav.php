@@ -134,7 +134,7 @@
 
       <?php if ($this->User_model->getActiveProject() != false): ?>
        <li>
-        <a href="<?php echo site_url('discussions'); ?>" class="is-dropdown-menu">
+        <a href="<?php echo site_url('discussion'); ?>">
           <span class="badge pull-right"></span>
           <i class="icon-comments"></i> Discussions
         </a>

@@ -1,5 +1,3 @@
-<?php $this->load->view('nav'); ?>
-
 <?php var_dump($threads); ?>
 
 <!-- delete thread link: discussion/delete/:thread_id: -->

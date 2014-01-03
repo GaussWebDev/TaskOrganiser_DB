@@ -1,5 +1,3 @@
-<?php $this->load->view('nav'); ?>
-
 <?php if (isset($confirm) == true): ?>
     <form action="<?php echo site_url('discussion/delete'), '/', $id; ?>" method="post">
         <p>Delete thread?</p>

@@ -1,5 +1,3 @@
-<?php $this->load->view('nav'); ?>
-
 <?php var_dump($posts); ?>
 
 <!-- delete post link: discussion/unpublish/:post_id: -->
