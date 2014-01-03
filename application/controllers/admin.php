@@ -158,7 +158,10 @@ class Admin extends CI_Controller
         }
 
         $data['user'] = $this->Account_model->getInfo($id);
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('admin/users_add', $data);
+        $this->load->view('footer', $data);
     }
 
     /**

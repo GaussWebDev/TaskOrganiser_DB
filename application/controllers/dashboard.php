@@ -25,7 +25,10 @@ class Dashboard extends CI_Controller
                 $this->load->view('footer');
                 break;
             default:
+                $this->load->view('header', $data);
+                $this->load->view('nav', $data);
                 $this->load->view('dashboard/default');
+                $this->load->view('footer', $data);
                 break;
         }
     }

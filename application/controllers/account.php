@@ -90,7 +90,7 @@ class Account extends CI_Controller
             // user logged in, redirect to index
             redirect(base_url());
         }
-
+            
         $this->load->view('account/reset_pwd', $data);
     }
 

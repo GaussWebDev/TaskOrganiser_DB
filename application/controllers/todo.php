@@ -115,7 +115,10 @@ class Todo extends CI_Controller
 	 	$data['todos'] = $this->Todo_model->getTodo($this->User_model->getID());
 		
     	//load the view associated with this controller
-    	$this->load->view('todo/todo', $data);
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
+        $this->load->view('todo/todo', $data);
+        $this->load->view('footer', $data);  
 	 }
 }
  

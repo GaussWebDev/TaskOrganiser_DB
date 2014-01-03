@@ -40,4 +40,5 @@
 			<?php echo $notify; ?>
     	</div>
 <?php endif; ?>
+
 </div>

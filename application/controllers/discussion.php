@@ -31,7 +31,11 @@ class Discussion extends CI_Controller
         $id = $this->User_model->getActiveProject();
         $data['threads'] = $this->Discussion_model->listThreads($id);
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('discussions/threads', $data);
+        $this->load->view('footer', $data);
+        
     }
 
     /**
@@ -74,7 +78,11 @@ class Discussion extends CI_Controller
         $data['posts'] = $this->Discussion_model->listPosts($id);
         $data['thread'] = $id;
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('discussions/posts', $data);
+        $this->load->view('footer', $data);
+        
     }
 
     /**
@@ -115,7 +123,10 @@ class Discussion extends CI_Controller
             $this->session->set_userdata('thread_confirm',$confirm);
         }
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('discussions/thread_delete.php', $data);
+        $this->load->view('footer', $data);    
     }
 
     /**
@@ -180,7 +191,10 @@ class Discussion extends CI_Controller
             $this->session->set_userdata('post_confirm',$confirm);
         }
 
+        $this->load->view('header', $data);
+        $this->load->view('nav', $data);
         $this->load->view('discussions/post_delete.php', $data);
+        $this->load->view('footer', $data);    
     }
 
 }
