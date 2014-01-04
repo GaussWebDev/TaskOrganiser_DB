@@ -1,14 +1,13 @@
 <div class="main-content">
 
-<table border="1">
+<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
 	<tr>
 		<th>Name</th>
 		<th>Time</th>
 		<th>Comment</th>
 		<th>Download</th>
-
+    <th>Delete</th>
   	</tr>
-	
   	<?php 
   	foreach($upload_data as $data)
   	{

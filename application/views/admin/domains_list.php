@@ -1,13 +1,13 @@
 <div class="main-content">
 <?php if(isset($dates)) { ?>
 				<p>Following domains expire within a week:</p>
-				<table><thead><tr><th><?php echo lang('lbl_domain'); ?></th></tr></thead><tbody>
+				<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap"><thead><tr><th><?php echo lang('lbl_domain'); ?></th></tr></thead><tbody>
 <?php 	foreach ($dates as $date): ?>
 						<tr><td><?php echo $date['domain'];  ?></td></tr>
 <?php 	endforeach;	} ?>
 					</tbody>
 				</table>
-			<table>
+			<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
 				<thead>
 					<tr>
 						<th><?php echo lang('lbl_username'); ?></th>
@@ -16,8 +16,8 @@
 						<th><?php echo lang('lbl_date_time_expires'); ?></th>
 						<th><?php echo lang('lbl_cost'); ?></th>
 						<th><?php echo lang('lbl_expired'); ?></th>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>

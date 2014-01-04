@@ -1,6 +1,6 @@
 <div class="main-content">
 
-			<table>
+			<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
 				<thead>
 					<tr>
 						<th><?php echo lang('lbl_username'); ?></th>
@@ -8,8 +8,8 @@
 						<th><?php echo lang('lbl_date_start'); ?></th>
 						<th><?php echo lang('lbl_comment'); ?></th>
 						<th><?php echo lang('lbl_billable'); ?></th>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>

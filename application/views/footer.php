@@ -11,6 +11,7 @@
 <!--Table sorter jquery-->
 <?php echo "<script src='{$url}assets/tablesorter/jquery.tablesorter.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/tablesorter/pager.js'></script>"; ?>
+
 <script type="text/javascript">
 $(document).ready(function() 
 	{ 

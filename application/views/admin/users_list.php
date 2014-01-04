@@ -1,5 +1,5 @@
 <div class="main-content">
-<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter">
+<table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
 	<thead>
 		<tr>
 		  <th>Username</th>
@@ -29,21 +29,6 @@
 	?>
 	</tbody>
 </table>
-<div id="pager" class="pager">
-	<form>
-		<img src="<?php echo base_url(); ?>assets/tablesorter/first.png" class="first"/>
-		<img src="<?php echo base_url(); ?>assets/tablesorter/prev.png" class="prev"/>
-		<input type="text" class="pagedisplay"/>
-		<img src="<?php echo base_url(); ?>assets/tablesorter/next.png" class="next"/>
-		<img src="<?php echo base_url(); ?>assets/tablesorter/last.png" class="last"/>
-		<select class="pagesize">
-			<option selected="selected"  value="10">10</option>
-			<option value="20">20</option>
-			<option value="30">30</option>
-			<option  value="40">40</option>
-		</select>
-	</form>
-</div>
 
 </div>
 
