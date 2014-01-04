@@ -25,12 +25,24 @@
     <h2>Developers</h2><!-- FIXME: Use lang()!!! -->
     <ul>
 <?php $i=0; foreach ($users as $user): if($user['role'] != 'Developer') continue; ?>
-        <li>
-<?php $checked = (isset($assignees) == true && in_array($user['ID_user'], $assignees) ? 'checked="checked"' : '' ); ?>
-            <input type="checkbox" name="developer<?php echo $i++; ?>" value="<?php echo $user['ID_user']; ?>" <?php echo $checked; ?>>
-            <?php echo $user['firstname'], ' ', $user['lastname']; ?>
-        </li>
+    <table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <?php $checked = (isset($assignees) == true && in_array($user['ID_user'], $assignees) ? 'checked="checked"' : '' ); ?> 
+            <td><?php echo $user['firstname'];  ?></td>
+            <td><?php echo $user['lastname'];  ?></td>
+            <td><input type="checkbox" name="developer<?php echo $i++; ?>" value="<?php echo $user['ID_user']; ?>" <?php echo $checked; ?>></td>
+        </tr>
 <?php endforeach; ?>
+        </tbody>
+    </table>
     <input type="hidden" name="max_developer" value="<?php echo $i; ?>">
     </ul>
     <input type="submit">
