@@ -1,7 +1,8 @@
 <div class="main-content">
+	<div class="addtodo">
 			<form action="<?php echo site_url('/todo/add'); ?>" method="post">
-				<p><?php echo lang('lbl_comment'); ?>: <textarea name="comment"></textarea></p>
-				<p><input type="submit"></p>
+				<div class="form-group"><label><?php echo lang('lbl_comment'); ?>:</label> <textarea style="resize:none;" class="form-control" name="comment" placeholder="Add ToDo note"></textarea></div>
+				<div class="form-group"><input class="btn btn-primary btn-lg usersubmit" value="Submit" type="submit"></div>
 			</form>
 		</div>
 		<!-- notification if the action was successfull -->
@@ -10,4 +11,5 @@
 			<?php echo $notify; ?>
     	</div>
 <?php endif; ?>
+</div>
 </div>
