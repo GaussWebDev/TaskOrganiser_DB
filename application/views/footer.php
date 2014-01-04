@@ -3,9 +3,24 @@
     </div>
   </div>
 </div>
+
 <?php $url = base_url(); ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<!--Table sorter jquery-->
+<?php echo "<script src='{$url}assets/tablesorter/jquery.tablesorter.js'></script>"; ?>
+<?php echo "<script src='{$url}assets/tablesorter/pager.js'></script>"; ?>
+<script type="text/javascript">
+$(document).ready(function() 
+	{ 
+	    $("#myTable").tablesorter(); 
+	    
+	} 
+); 
+</script>
+
+<!--Jquery ostalo-->
 <?php echo "<script src='{$url}assets/js/jquery.sparkline.min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/tab.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/dropdown.js'></script>"; ?>
@@ -22,7 +37,8 @@
 <?php echo "<script src='{$url}assets/js/for_pages/color_settings.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/application.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/dashboard.js'></script>"; ?>
+<?php echo "<script src='{$url}assets/js/for_pages/table.js'></script>"; ?>
+
 
 </body>
-
 </html>
