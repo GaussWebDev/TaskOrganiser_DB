@@ -106,9 +106,9 @@ class Discussion_model extends CI_Model
     public function listPosts($thread_id)
     {
         $this->db->select('ID_post, text, date_time_post, firstname, lastname, title');
-        $this->db->where('ID_thread_fk', 'ID_thread', false);
-        $this->db->where('ID_user_fk', 'ID_user', false);
-        $this->db->where('ID_thread_fk', $thread_id);
+        $this->db->where('posts.ID_thread_fk', 'threads.ID_thread', false);
+        $this->db->where('posts.ID_user_fk', 'users.ID_user', false);
+        $this->db->where('posts.ID_thread_fk', $thread_id);
         $query = $this->db->get('posts, users, threads');
 
         return $query->result_array();
