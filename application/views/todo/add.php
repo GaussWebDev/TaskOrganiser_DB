@@ -1,3 +1,4 @@
+<script>var menu_id='todo-dropdown';</script>
 <div class="main-content">
 	<div class="addtodo">
 			<form action="<?php echo site_url('/todo/add'); ?>" method="post">

@@ -1,3 +1,4 @@
+<script>var menu_id='projects-dropdown';</script>
 <?php if (isset($confirm) == true): ?>
     <form action="<?php echo site_url('discussion/unpublish'), '/', $id; ?>" method="post">
         <p>Delete post?</p>

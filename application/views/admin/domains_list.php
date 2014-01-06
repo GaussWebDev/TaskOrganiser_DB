@@ -1,3 +1,4 @@
+<script>var menu_id='domains-dropdown';</script>
 <div class="main-content">
 <?php if(isset($dates)) { ?>
 				<p>Following domains expire within a week:</p>

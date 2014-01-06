@@ -1,3 +1,4 @@
+<script>var menu_id='tasks-dropdown';</script>
 <div class="main-content">
 	<div class="addtask">
 			<form action="<?php if (isset($task['ID_task']) == false) {echo site_url('task/add');} else {echo site_url('task/edit'), '/', $task['ID_task'];} ?>" method="post">

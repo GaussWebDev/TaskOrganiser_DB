@@ -1,3 +1,4 @@
+<script>var menu_id='uploads-dropdown';</script>
 <div class="main-content">
 <div class="newupload">
 <?php echo $error;?>

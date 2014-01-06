@@ -1,3 +1,4 @@
+<script>var menu_id='projects-dropdown';</script>
 <div class="main-content">
 
 <?php if (isset($confirm) == true): ?>

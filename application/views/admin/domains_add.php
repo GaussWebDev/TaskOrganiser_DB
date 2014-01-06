@@ -1,3 +1,4 @@
+<script>var menu_id='domains-dropdown';</script>
 <div class="main-content">
 	<div class="adddomain">
 			<form action="<?php if (isset($domain['ID_domain']) == false) {echo site_url('/domains/add');} else {echo site_url('/domains/edit'), '/', $domain['ID_domain'];} ?>" method="post">

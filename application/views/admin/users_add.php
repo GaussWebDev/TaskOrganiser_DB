@@ -1,3 +1,4 @@
+<script>var menu_id='users-dropdown';</script>
 <div class="main-content">
 
     <div class="add-form">

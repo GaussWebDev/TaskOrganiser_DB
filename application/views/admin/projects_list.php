@@ -1,4 +1,4 @@
-
+<script>var menu_id='projects-dropdown';</script>
 <div class="main-content">
 <table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
 	<thead>

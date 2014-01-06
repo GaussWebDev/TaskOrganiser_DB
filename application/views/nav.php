@@ -34,7 +34,7 @@
     { 
     ?>
       <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="users-dropdown">
           <span class="badge pull-right"></span>
           <i class="icon-user"></i> Users
         </a>
@@ -54,7 +54,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="projects-dropdown">
           <span class="badge pull-right"></span>
           <i class="icon-briefcase"></i> Projects
         </a>
@@ -74,7 +74,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="domains-dropdown">
           <span class="badge pull-right"></span>
           <i class="icon-plus-sign"></i> Domains
         </a>
@@ -95,7 +95,7 @@
       </li>
       <?php } ?>
        <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="todo-dropdown">
           <span class="badge pull-right"></span>
           <i class="icon-check"></i> TODO
         </a>
@@ -140,7 +140,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="tasks-dropdown">
           <span class="badge pull-right"></span>
           <i class=" icon-edit"></i> Tasks
         </a>
@@ -160,7 +160,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" class="is-dropdown-menu">
+        <a href="#" class="is-dropdown-menu" id="uploads-dropdown">
           <span class="badge pull-right"></span>
           <i class="icon-cloud-upload"></i> Upload file
         </a>

@@ -1,3 +1,4 @@
+<script>var menu_id='uploads-dropdown';</script>
 <div class="main-content">
 <h3>Your file was successfully uploaded!</h3> <!-- FIXME: Use lang()!!! -->
 
