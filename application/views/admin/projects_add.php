@@ -19,23 +19,33 @@
 treba složiti Developere i Usere u tablicu sa dva stupca (User/Checkbox)
 jer će ih se dodavati još,pa ću ja još srediti ako bude trebalo /Suvala -->
 
-
     <h3>Clients</h3><!-- FIXME: Use lang()!!! -->
-    <ul>
-<?php
-    $i=0; foreach ($users as $user): if($user['role'] != 'Client') continue;?>
+
+        <?php $i=0; foreach ($users as $user): if($user['role'] != 'Client') continue;?>
         
-<?php $checked = (isset($assignees) == true && in_array($user['ID_user'], $assignees) ? 'checked="checked"' : '' ); ?>
-          <li> <div class="form-group"> <input class="form-control" type="checkbox" name="client<?php echo $i++; ?>" value="<?php echo $user['ID_user']; ?>" <?php echo $checked; ?>></div>
-            <?php echo $user['firstname'], ' ', $user['lastname']; ?> </li>
-        
-<?php endforeach; ?>
-     <li>  <div class="form-group"> <input class="form-control" type="hidden" name="max_client" value="<?php echo $i; ?>"></div></li>
-    <ul>
+        <table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <?php $checked = (isset($assignees) == true && in_array($user['ID_user'], $assignees) ? 'checked="checked"' : '' ); ?> 
+                <td><?php echo $user['firstname'];  ?></td>
+                <td><?php echo $user['lastname'];  ?></td>
+                <td><input type="checkbox" name="developer<?php echo $i++; ?>" value="<?php echo $user['ID_user']; ?>" <?php echo $checked; ?>></td>
+            </tr>
+    <?php endforeach; ?>
+  <div class="form-group"> <input class="form-control" type="hidden" name="max_client" value="<?php echo $i; ?>"></div></li>
+
     
     <h3>Developers</h3><!-- FIXME: Use lang()!!! -->
 
 <?php $i=0; foreach ($users as $user): if($user['role'] != 'Developer') continue; ?>
+    
     <table id="myTable" class="table table-striped table-bordered table-hover datatable tablesorter tablesorter-bootstrap">
         <thead>
             <tr>
@@ -54,6 +64,7 @@ jer će ih se dodavati još,pa ću ja još srediti ako bude trebalo /Suvala -->
 <?php endforeach; ?>
         </tbody>
     </table>
+    <br>
     <input type="hidden" name="max_developer" value="<?php echo $i; ?>">
     <input class="btn btn-primary btn-lg projectsubmit" type ="submit" value="Submit">
 </form>

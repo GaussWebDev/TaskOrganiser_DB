@@ -9,7 +9,7 @@
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/chosen.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/font-awesome/font-awesome.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/app.css'>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel='stylesheet' href='<?php echo base_url(); ?>assets/tablesorter/blue/style.css'>
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url(); ?>assets/favicon.ico" rel="shortcut icon">
 <link href="<?php echo base_url(); ?>assets/apple-touch-icon.png" rel="apple-touch-icon">

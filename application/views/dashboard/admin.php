@@ -7,7 +7,6 @@
 echo ucfirst($this->User_model->getFirstName());
 echo " ";
 echo ucfirst($this->User_model->getLastName());
-testtttttttt
 ?></h1>
 </div>
 </div>
