@@ -38,4 +38,5 @@ local.properties
 */logs/!index.html
 */cache/*
 */cache/!index.html
-uploads/*
+.idea
+CI_phpStorm.php
