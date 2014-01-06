@@ -7776,5 +7776,62 @@ line-height: 1.42857;
 font-weight: 400;
 margin-bottom: 5px;
 
+}
+
+.addprojectform{
+  width: 30%;
+display: inline-block;
+margin-top:-30px;
+font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857;
+}
+.addprojectform h3{font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.42857;
+  font-weight: 300;
+  color: #226998;
+}
+
+.addprojectform input{
+display:inline-block;
+margin-top: -5px;
+}
+.addprojectform label{
+font-weight: 400;
+margin-bottom: 5px;
+}
+.adddomain{
+  width:30%;
+  margin-top:-30px;
 
 }
+
+.adddomain label{
+font-weight: 400;
+margin-bottom: 5px;
+}
+.addtodo{
+  width:30%;
+  margin-top:-30px;
+}
+.addtodo label{
+font-weight: 400;
+margin-bottom: 5px;
+}
+
+.addtask {
+  width:30%;
+  margin-top: -30px;
+}
+.addtask label{
+font-weight: 400;
+margin-bottom: 5px;
+}
+
+.newupload {
+  width:30%;
+  margin-top: -30px;
+}
+.newupload label{
+font-weight: 400;
+margin-bottom: 5px;

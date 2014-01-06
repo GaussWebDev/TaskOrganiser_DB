@@ -29,16 +29,18 @@
                         <div class="form-group"><input class="btn btn-primary btn-lg usersubmit" type="submit" value="Submit"></div>
                     </form>
                 </div>
-    </div>        
-</div>
-
-
-
-
-
-<?php if(isset($notify) == true): ?>
+    <?php if(isset($notify) == true): ?>
     <div>
         <?php echo $notify; ?>
     </div>
 <?php endif; ?>
+    </div>        
+
+
+
+
 </div>
+
+</div>
+
+
