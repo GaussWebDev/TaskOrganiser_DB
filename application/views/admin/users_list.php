@@ -10,22 +10,22 @@
 				<th>Mobile</th>
 				<th>Email</th>
 				<th>Role</th>
+                <th>Edit</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php 
-				foreach ($users as $user) {
-					echo "<tr>";
-					echo "<th>{$user['username']}</th>";
-					echo "<th>{$user['firstname']}</th>";
-					echo "<th>{$user['lastname']}</th>";
-					echo "<th>{$user['address']}</th>";
-					echo "<th>{$user['mobile']}</th>";
-					echo "<th>{$user['email']}</th>";
-					echo "<th>{$user['role']}</th>";
-					echo "</tr>";
-				}
-			?>
+<?php foreach ($users as $user): ?>
+            <tr>
+                <td><?php echo $user['username']; ?></td>
+                <td><?php echo $user['firstname']; ?></td>
+                <td><?php echo $user['lastname']; ?></td>
+                <td><?php echo $user['address']; ?></td>
+                <td><?php echo $user['mobile']; ?></td>
+                <td><?php echo $user['email']; ?></td>
+                <td><?php echo $user['role']; ?></td>
+                <td><a href="<?php echo site_url('users/edit'), '/', $user['ID_user']; ?>">Edit</a></td>
+            </tr>
+<?php endforeach; ?>
 		</tbody>
 	</table>
 </div>
