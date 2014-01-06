@@ -6,27 +6,20 @@
 		  <th>Title</th>
 		  <th>Finished</th>
 		  <th>Date time start</th>
+          <th>Edit</th>
+          <th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
-	<?php 
-	foreach ($projects as $project) 
-	{
-		echo "<tr>";
-		echo "<th>{$project['title']}</th>";
-		if($project['finished'] == 0)
-		{
-			echo "<th>NO</th>";
-		}
-		else
-		{
-			echo "<th>YES</th>";
-		}
-		echo "<th>{$project['date_time_start']}</th>";
-		echo "</tr>";
-	}
-
-	?>
+<?php foreach ($projects as $project): ?>
+        <tr>
+            <td><?php echo $project['title']; ?></td>
+            <td><?php echo ($project['finished'] == 0)? 'NO' : 'YES'; ?></td>
+            <td><?php echo $project['date_time_start']; ?></td>
+            <td><a href="<?php echo site_url('projects/edit'), '/', $project['ID_project']; ?>">Edit</a></td>
+            <td><a href="<?php echo site_url('projects/remove'), '/', $project['ID_project']; ?>">Delete</a></td>
+        </tr>
+<?php endforeach; ?>
 	</tbody>
 </table>
 
