@@ -20,7 +20,7 @@
 </table>
 <!-- delete thread link: discussion/delete/:thread_id: -->
 <form action="<?php echo site_url('discussion/add'); ?>" method="post">
-    <input type="text" name="title">
-    <input type="submit">
+     <div class="form-group"><label for="title">Theme Title</label><input  id="title" class="form-control" type="text" name="title"></div>
+    <div class="form-group"><input class="btn btn-primary btn-lg usersubmit" type="submit"></div>
 </form>
 </div>
