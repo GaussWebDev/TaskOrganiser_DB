@@ -15,6 +15,6 @@
 <form action="<?php echo site_url('discussion/post'); ?>" method="post">
     <div class="form-group"><label for="post">Message</label><input id="post" class="form-control" type="text" name="message"></div>
     <input type="hidden" name="thread" value="<?php echo $thread; ?>">
-    <div class="form-group"><input  class="btn btn-primary btn-lg usersubmit" type="submit"></div>
+    <div class="form-group"><input  class="btn btn-primary btn-lg usersubmit" type="submit" value="Send"></div>
 </form>
 </div>

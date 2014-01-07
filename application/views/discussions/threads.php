@@ -21,6 +21,6 @@
 <!-- delete thread link: discussion/delete/:thread_id: -->
 <form action="<?php echo site_url('discussion/add'); ?>" method="post">
      <div class="form-group"><label for="title">Theme Title</label><input  id="title" class="form-control" type="text" name="title"></div>
-    <div class="form-group"><input class="btn btn-primary btn-lg usersubmit" type="submit"></div>
+    <div class="form-group"><input class="btn btn-primary btn-lg usersubmit" type="submit" value="Create"></div>
 </form>
 </div>

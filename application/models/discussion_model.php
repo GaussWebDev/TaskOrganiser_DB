@@ -14,6 +14,7 @@ class Discussion_model extends CI_Model
     public function listThreads($prj_id)
     {
         $this->db->where('ID_project_fk', $prj_id);
+        $this->db->order_by("ID_thread", "ASC"); 
         $query = $this->db->get('threads');
 
         return $query->result_array();
@@ -109,6 +110,7 @@ class Discussion_model extends CI_Model
         $this->db->where('posts.ID_thread_fk', 'threads.ID_thread', false);
         $this->db->where('posts.ID_user_fk', 'users.ID_user', false);
         $this->db->where('posts.ID_thread_fk', $thread_id);
+        $this->db->order_by("ID_post", "ASC"); 
         $query = $this->db->get('posts, users, threads');
 
         return $query->result_array();
