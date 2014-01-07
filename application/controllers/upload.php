@@ -1,5 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
+// quick fix (FIXME more)
+        $data = array();
 /**
 * Upload management
 */
