@@ -1,3 +1,4 @@
+<div class="main-content">
 <?php var_dump($posts); ?>
 
 <!-- delete post link: discussion/unpublish/:post_id: -->
@@ -7,3 +8,4 @@
     <input type="hidden" name="thread" value="<?php echo $thread; ?>">
     <input type="submit">
 </form>
+</div>
