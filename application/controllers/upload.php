@@ -1,8 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-// quick fix (FIXME more)
-        $data = array();
+
 /**
 * Upload management
 */
@@ -38,10 +37,10 @@ class Upload extends CI_Controller
         {
             $error = array('error' => $this->upload->display_errors());
 
-            $this->load->view('header', $data);
-            $this->load->view('nav', $data);
+            $this->load->view('header');
+            $this->load->view('nav');
             $this->load->view('upload/upload_form', $error);
-            $this->load->view('footer', $data);    
+            $this->load->view('footer');    
         }
         else
         {   
