@@ -14,7 +14,7 @@
     <h3>Project info</h3><!-- FIXME: Use lang()!!! -->
     <div class="form-group"><label>Title:</label> <input class="form-control" type="text" name="title" value="<?php if (isset($info['title']) == true) echo $info['title']; ?>"></div><!-- FIXME: Use lang()!!! -->
     <div class="form-group"><label>Finished: <input class="form-control" type="checkbox" value="1" name="finished"<?php if (isset($info['finished']) == true && $info['finished'] == 1) echo ' checked="checked"'; ?>></label></div><!-- FIXME: Use lang()!!! -->
-    <div class="form-group"><label>Start:</label> <input class="form-control" type="text" name="started" value="<?php if (isset($info['date_time_start']) == true) echo $info['date_time_start']; ?>"></div><!-- FIXME: Use lang()!!! -->
+    <div class="form-group"><label>Start:</label> <input class="form-control" id="datetimepicker" type="text" name="started" value="<?php if (isset($info['date_time_start']) == true) echo $info['date_time_start']; ?>"></div><!-- FIXME: Use lang()!!! -->
     
 <!---Šapina,ovome su sve klase za formu dodijeljene,
 treba složiti Developere i Usere u tablicu sa dva stupca (User/Checkbox)

@@ -7,7 +7,7 @@
 <?php $url = base_url(); ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
+<?php echo "<script src='{$url}assets/js/jquery.datetimepicker.js'></script>"; ?>
 <!--Table sorter jquery-->
 <?php echo "<script src='{$url}assets/tablesorter/jquery.tablesorter.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/tablesorter/pager.js'></script>"; ?>
@@ -16,16 +16,29 @@
 $(document).ready(function() 
 	{ 
 	    $("#myTable").tablesorter(); 
-	    
 	} 
+
 ); 
+$('#datetimepicker').datetimepicker({
+	format:'d.m.Y H:i:s',
+});
+$('#dtdomain1').datetimepicker({
+	format:'d.m.Y H:i:s',
+});
+$('#dtdomain2').datetimepicker({
+	format:'d.m.Y H:i:s',
+});
+
 </script>
 
+
 <!--Jquery ostalo-->
+
 <?php echo "<script src='{$url}assets/js/jquery.sparkline.min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/tab.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/dropdown.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/collapse.js'></script>"; ?>
+
 <?php echo "<script src='{$url}assets/js/bootstrap/transition.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/tooltip.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/jquery.knob.js'></script>"; ?>

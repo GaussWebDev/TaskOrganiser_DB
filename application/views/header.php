@@ -9,7 +9,10 @@
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/chosen.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/font-awesome/font-awesome.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/app.css'>
+<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/jquery.datetimepicker.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/tablesorter/blue/style.css'>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url(); ?>assets/favicon.ico" rel="shortcut icon">
 <link href="<?php echo base_url(); ?>assets/apple-touch-icon.png" rel="apple-touch-icon">
