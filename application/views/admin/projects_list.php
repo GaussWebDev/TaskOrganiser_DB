@@ -15,7 +15,7 @@
         <tr>
             <td><?php echo $project['title']; ?></td>
             <td><?php echo ($project['finished'] == 0)? 'NO' : 'YES'; ?></td>
-            <td><?php echo $project['date_time_start']; ?></td>
+            <td><?php echo date2user($project['date_time_start']); ?></td>
             <td><a href="<?php echo site_url('projects/edit'), '/', $project['ID_project']; ?>">Edit</a></td>
             <td><a href="<?php echo site_url('projects/remove'), '/', $project['ID_project']; ?>">Delete</a></td>
         </tr>

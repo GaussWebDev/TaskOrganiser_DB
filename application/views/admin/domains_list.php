@@ -26,8 +26,8 @@
 					<tr>
 						<td><?php echo $domain['username'];  ?></td>
 						<td><?php echo $domain['domain'];  ?></td>
-						<td><?php echo $domain['date_time_start']; ?></td>
-						<td><?php echo $domain['date_time_expires']; ?></td>
+						<td><?php echo date2user($domain['date_time_start']); ?></td>
+						<td><?php echo date2user($domain['date_time_expires']); ?></td>
 						<td><?php echo $domain['cost']; ?></td>						
 						<td><input type="checkbox" name="" value="" disabled="disabled" <?php if($domain['expired'] == 1) {?>checked="checked"<?php }?>/></td>
 						<td><a href="<?php echo site_url('domains/edit'), '/', $domain['ID_domain']; ?>"><?php echo lang('lbl_update'); ?></a></td>
