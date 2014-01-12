@@ -19,4 +19,3 @@ if (typeof(menu_id) != undefined)
     $('#'+menu_id).next('ul').slideToggle(0, function() {
         $(this).closest('li').toggleClass('active');
     });
-console.log(menu_id);
