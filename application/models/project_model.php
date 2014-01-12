@@ -25,8 +25,7 @@ class Project_model extends CI_Model
     public function add($project, $assignees)
     {
         // reformat date
-        $date = new DateTime($project['date_time_start']);
-        $project['date_time_start'] = $date->format('Y-m-d');
+        $project['date_time_start'] = date2sql($project['date_time_start']);
 
         // insert new data
         $this->db->set($project);
@@ -127,8 +126,7 @@ class Project_model extends CI_Model
     public function update($id, $project, $assignees)
     {
         // reformat date
-        $date = new DateTime($project['date_time_start']);
-        $project['date_time_start'] = $date->format('Y-m-d');
+        $project['date_time_start'] = date2sql($project['date_time_start']);
 
         // insert new data
         $this->db->where('ID_project', $id);

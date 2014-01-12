@@ -51,9 +51,9 @@ class Domain_model extends CI_Model
 	 	}
 	 	
         // perform insert
+        $data['date_time_start'] = date2sql($data['date_time_start']);
+        $data['date_time_expires'] = date2sql($data['date_time_expires']);
         $result = $this->db->insert('domains', $data);
-        //var_dump($data);
-		//$result = TRUE;
 		
         return $result;
 	 }
@@ -76,11 +76,12 @@ class Domain_model extends CI_Model
 	 		$data['expired'] = 0;
 	 	}
 	 	
+	 	$data['date_time_start'] = date2sql($data['date_time_start']);
+        $data['date_time_expires'] = date2sql($data['date_time_expires']);
  		$this->db->where('ID_domain', $id);
         $this->db->set($data);
         
 		$update = $this->db->update('domains');
-		var_dump($update); 
         return $update;
 	 }
 	 
