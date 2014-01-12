@@ -13,20 +13,13 @@
 <?php echo "<script src='{$url}assets/tablesorter/pager.js'></script>"; ?>
 
 <script type="text/javascript">
-$(document).ready(function() 
-	{ 
-	    $("#myTable").tablesorter(); 
-	} 
-
-); 
-$('#datetimepicker').datetimepicker({
-	format:'d.m.Y H:i:s',
-});
-$('#dtdomain1').datetimepicker({
-	format:'d.m.Y H:i:s',
-});
-$('#dtdomain2').datetimepicker({
-	format:'d.m.Y H:i:s',
+$(document).ready(function() { 
+    $("#myTable").tablesorter(); 
+}); 
+$('#datetimepicker, #dtdomain1, #dtdomain2').datetimepicker({
+	format:'d.m.Y',
+    timepicker: false,
+    closeOnDateSelect: true,
 });
 
 </script>
@@ -38,7 +31,6 @@ $('#dtdomain2').datetimepicker({
 <?php echo "<script src='{$url}assets/js/bootstrap/tab.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/dropdown.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/collapse.js'></script>"; ?>
-
 <?php echo "<script src='{$url}assets/js/bootstrap/transition.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/bootstrap/tooltip.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/jquery.knob.js'></script>"; ?>
@@ -49,10 +41,9 @@ $('#dtdomain2').datetimepicker({
 <?php echo "<script src='{$url}assets/js/raphael-min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/morris-0.4.3.min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/color_settings.js'></script>"; ?>
-<?php echo "<script src='{$url}assets/js/application.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/dashboard.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/table.js'></script>"; ?>
-
+<?php echo "<script src='{$url}assets/js/application.js'></script>"; ?>
 
 </body>
 </html>
