@@ -1,3 +1,4 @@
+<script>var menu_id='dashboard';</script>
 <div class="main-content">
  <h1>
 <?php 

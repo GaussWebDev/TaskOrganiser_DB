@@ -1,3 +1,4 @@
+<script>var menu_id='dashboard';</script>
 <div class="main-content">
 <div class="hero-unit">
 <h1 style="margin-top:-20px;">Welcome to TaskOrganiser!</h1>

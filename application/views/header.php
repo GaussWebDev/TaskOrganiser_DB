@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/fullcalendar.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/datatables/datatables.css'>
-<link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/datatables/bootstrap.datatables.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/chosen.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/scss/font-awesome/font-awesome.css'>
 <link rel='stylesheet' href='<?php echo base_url(); ?>assets/css/app.css'>

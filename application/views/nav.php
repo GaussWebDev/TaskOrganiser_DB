@@ -1,9 +1,4 @@
 <!-- This is responsive menu!-->
-<script type="text/javascript">
-  $('#myDropdown').on('hide.bs.dropdown', function () {
-    return false;
-  });
-</script>
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
   <span class="sr-only">Toggle navigation</span>
   <span class="icon-bar"></span>

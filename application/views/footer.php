@@ -21,7 +21,9 @@ $('#datetimepicker, #dtdomain1, #dtdomain2').datetimepicker({
     timepicker: false,
     closeOnDateSelect: true,
 });
-
+$('#myDropdown').on('hide.bs.dropdown', function () {
+    return false;
+});
 </script>
 
 
@@ -39,7 +41,6 @@ $('#datetimepicker, #dtdomain1, #dtdomain2').datetimepicker({
 <?php echo "<script src='{$url}assets/js/chosen.jquery.min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/datatables/bootstrap.datatables.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/raphael-min.js'></script>"; ?>
-<?php echo "<script src='{$url}assets/js/morris-0.4.3.min.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/color_settings.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/dashboard.js'></script>"; ?>
 <?php echo "<script src='{$url}assets/js/for_pages/table.js'></script>"; ?>
